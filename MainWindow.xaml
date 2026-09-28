@@ -1,0 +1,303 @@
+<Window x:Class="RegOptimizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RegOptimizer" Height="860" Width="1280" MinWidth="1020" MinHeight="700"
+        Background="{StaticResource Bg}" Foreground="{StaticResource Text}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="68"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#151515" BorderBrush="#292929" BorderThickness="0,0,0,1">
+            <Grid Margin="22,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Width="52" Height="52" CornerRadius="12" Background="{StaticResource Accent}">
+                    <TextBlock Text="✓" FontSize="31" FontWeight="Bold"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="14,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="RegOptimizer" FontSize="25" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="HeaderInfo" Foreground="{StaticResource Muted}" Margin="0,4,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Background="#202020" CornerRadius="8" Padding="10,6" Margin="4">
+                        <TextBlock x:Name="CountBadge" Foreground="#D4D4D8"/>
+                    </Border>
+                    <Border Background="#202020" CornerRadius="8" Padding="10,6" Margin="4">
+                        <TextBlock x:Name="SmartCountBadge" Foreground="#C4B5FD"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TabControl Grid.Row="1" x:Name="MainModeTabs" Background="#111111" BorderThickness="0"
+                    Foreground="White" SelectionChanged="MainModeTabs_SelectionChanged">
+            <TabItem Header="OPÇÕES INTELIGENTES">
+                <Grid Background="#111111">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="#171717" BorderBrush="#292929" BorderThickness="0,0,0,1" Padding="14,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Perfis de seleção" FontWeight="SemiBold" FontSize="14"/>
+                                <TextBlock Text="Os perfis apenas selecionam opções. Nada é aplicado até você clicar em Aplicar."
+                                           Foreground="{StaticResource Muted}" FontSize="11" Margin="0,3,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                <Button Content="Trabalho" Tag="WORK" Click="Profile_Click"/>
+                                <Button Content="Trabalho + Gamer" Tag="WORK_GAMER" Click="Profile_Click"/>
+                                <Button Content="Gamer" Tag="GAMER" Click="Profile_Click"/>
+                                <Button Content="Experimental" Tag="EXPERIMENTAL" Click="Profile_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" Background="#2A1717" BorderBrush="#5F2626" BorderThickness="0,0,0,1" Padding="14,8">
+                        <TextBlock Text="Itens marcados REVISAR ficam bloqueados no modo inteligente. Eles continuam disponíveis em Individual / Avançado para inspeção e correção."
+                                   Foreground="#FCA5A5" TextWrapping="Wrap"/>
+                    </Border>
+
+                    <Grid Grid.Row="2" Margin="18,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="180"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="SmartSearchBox" TextChanged="SmartFilterChanged"
+                                 ToolTip="Pesquisar opção, descrição, categoria ou registro"/>
+                        <ComboBox x:Name="SmartCategoryFilter" Grid.Column="1" Margin="10,0,0,0"
+                                  SelectionChanged="SmartFilterChanged"/>
+                        <ComboBox x:Name="SmartRiskFilter" Grid.Column="2" Margin="10,0,0,0"
+                                  SelectionChanged="SmartFilterChanged">
+                            <ComboBoxItem Content="Todos os riscos"/>
+                            <ComboBoxItem Content="Baixo"/>
+                            <ComboBoxItem Content="Moderado"/>
+                            <ComboBoxItem Content="Alto"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="SmartCategoryItems" Margin="18,0,18,18">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="0,8,0,18">
+                                        <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold"
+                                                   Foreground="#C4B5FD" Margin="2,0,0,8"/>
+                                        <ItemsControl ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="{StaticResource Panel}" BorderBrush="#2A2A2A"
+                                                            BorderThickness="1" CornerRadius="10" Padding="13" Margin="0,0,0,8">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="36"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="155"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                                      IsEnabled="{Binding CanApply}"
+                                                                      Click="SmartSelectionChanged"
+                                                                      VerticalAlignment="Top" Margin="4,4,0,0"/>
+                                                            <StackPanel Grid.Column="1">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Name}" FontSize="15" FontWeight="SemiBold"/>
+                                                                    <Border Background="#27272A" CornerRadius="5" Padding="7,2" Margin="8,0,0,0">
+                                                                        <TextBlock Text="{Binding CountText}" FontSize="10" Foreground="#D4D4D8"/>
+                                                                    </Border>
+                                                                    <Border Background="#2E1065" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
+                                                                        <TextBlock Text="{Binding Profile}" FontSize="10" Foreground="#DDD6FE"/>
+                                                                    </Border>
+                                                                    <Border Background="#3F1D1D" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
+                                                                        <TextBlock Text="{Binding StatusText}" FontSize="10" Foreground="#FCA5A5"/>
+                                                                    </Border>
+                                                                </StackPanel>
+                                                                <TextBlock Text="{Binding Description}" Foreground="{StaticResource Muted}"
+                                                                           TextWrapping="Wrap" Margin="0,5,0,0"/>
+                                                                <TextBlock Text="{Binding Notes}" Foreground="#FDE68A"
+                                                                           TextWrapping="Wrap" Margin="0,4,0,0"/>
+                                                                <Expander Header="Ver registros incluídos" Foreground="#A78BFA" Margin="0,8,0,0">
+                                                                    <ItemsControl ItemsSource="{Binding Items}">
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <Border Background="#141414" BorderBrush="#262626"
+                                                                                        BorderThickness="1" CornerRadius="6"
+                                                                                        Padding="8" Margin="0,3">
+                                                                                    <StackPanel>
+                                                                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="11"/>
+                                                                                        <TextBlock Text="{Binding Path}" FontFamily="Consolas"
+                                                                                                   Foreground="#71717A" FontSize="9" TextWrapping="Wrap"/>
+                                                                                        <TextBlock Text="{Binding ApplyRaw, StringFormat=Aplicar: {0}}"
+                                                                                                   FontFamily="Consolas" Foreground="#A1A1AA" FontSize="9"/>
+                                                                                        <TextBlock Text="{Binding Warning}" Foreground="#FCA5A5"
+                                                                                                   FontSize="9" TextWrapping="Wrap"/>
+                                                                                    </StackPanel>
+                                                                                </Border>
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </Expander>
+                                                            </StackPanel>
+                                                            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                                                <Border Background="#27272A" CornerRadius="6" Padding="9,4">
+                                                                    <TextBlock Text="{Binding Risk, StringFormat=Risco: {0}}" FontSize="11"/>
+                                                                </Border>
+                                                                <TextBlock Text="{Binding Id}" Foreground="#71717A"
+                                                                           FontFamily="Consolas" FontSize="10"
+                                                                           HorizontalAlignment="Right" Margin="0,8,0,0"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="INDIVIDUAL / AVANÇADO">
+                <Grid Background="#111111">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48"/>
+                        <RowDefinition Height="58"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="#171717" BorderBrush="#292929" BorderThickness="0,0,0,1">
+                        <ListBox x:Name="TabsList" SelectionChanged="TabsList_SelectionChanged"
+                                 Background="Transparent" BorderThickness="0" Foreground="White"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                 SelectionMode="Single">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate><StackPanel Orientation="Horizontal"/></ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" FontWeight="SemiBold" Margin="16,11"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="18,9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="210"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="SearchBox" TextChanged="FilterChanged"
+                                 ToolTip="Pesquisar por nome, caminho, descrição ou valor"/>
+                        <ComboBox x:Name="RiskFilter" Grid.Column="1" Margin="10,0,0,0"
+                                  SelectionChanged="FilterChanged">
+                            <ComboBoxItem Content="Todos os riscos"/>
+                            <ComboBoxItem Content="Baixo"/>
+                            <ComboBoxItem Content="Moderado"/>
+                            <ComboBoxItem Content="Alto"/>
+                        </ComboBox>
+                        <Button Grid.Column="2" Content="Limpar seleção" Click="ClearIndividualSelection_Click"
+                                Margin="10,0,0,0"/>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="SectionsItems" Margin="18,0,18,18">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="0,8,0,16">
+                                        <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold"
+                                                   Foreground="#C4B5FD" Margin="2,0,0,8"/>
+                                        <ItemsControl ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="{StaticResource Panel}" BorderBrush="#2A2A2A"
+                                                            BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,0,0,7">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="34"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="150"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                                      Click="IndividualSelectionChanged"
+                                                                      VerticalAlignment="Top" Margin="3,4,0,0"/>
+                                                            <StackPanel Grid.Column="1">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding DisplayName}" FontSize="14" FontWeight="SemiBold"/>
+                                                                    <Border Background="#27272A" CornerRadius="5" Padding="7,2" Margin="8,0,0,0">
+                                                                        <TextBlock Text="{Binding RegistryType}" FontSize="10" Foreground="#D4D4D8"/>
+                                                                    </Border>
+                                                                    <Border Background="#2E1065" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
+                                                                        <TextBlock Text="{Binding OptimizerReference}" FontSize="10" Foreground="#DDD6FE"/>
+                                                                    </Border>
+                                                                </StackPanel>
+                                                                <TextBlock Text="{Binding Description}" Foreground="{StaticResource Muted}"
+                                                                           TextWrapping="Wrap" Margin="0,5,0,0"/>
+                                                                <TextBlock Text="{Binding Path}" Foreground="#71717A"
+                                                                           FontFamily="Consolas" FontSize="10" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                                                                <TextBlock Text="{Binding ApplyRaw, StringFormat=Valor: {0}}"
+                                                                           Foreground="#A1A1AA" FontFamily="Consolas" FontSize="10" Margin="0,2,0,0"/>
+                                                                <TextBlock Text="{Binding Warning}" Foreground="#FCA5A5"
+                                                                           FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                                                            </StackPanel>
+                                                            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                                                <Border Background="#27272A" CornerRadius="6" Padding="9,4">
+                                                                    <TextBlock Text="{Binding Risk, StringFormat=Risco: {0}}" FontSize="11"/>
+                                                                </Border>
+                                                                <TextBlock Text="{Binding Id}" Foreground="#71717A" FontFamily="Consolas"
+                                                                           FontSize="10" HorizontalAlignment="Right" Margin="0,8,0,0"/>
+                                                                <TextBlock Text="{Binding SourceLine, StringFormat=Linha original: {0}}"
+                                                                           Foreground="#71717A" FontSize="10" HorizontalAlignment="Right"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Border Grid.Row="2" Background="#151515" BorderBrush="#292929" BorderThickness="0,1,0,0">
+            <Grid Margin="14,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="StatusText" Foreground="{StaticResource Muted}"/>
+                    <TextBlock x:Name="SelectionText" Foreground="#71717A" FontSize="10" Margin="0,3,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="Abrir snapshots" Click="OpenSnapshots_Click"/>
+                    <Button Content="Limpar seleção" Click="ClearCurrentSelection_Click"/>
+                    <Button Content="Restaurar selecionados" Click="RestoreSelected_Click"/>
+                    <Button Content="Aplicar selecionados" Background="{StaticResource Accent}" Click="ApplySelected_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8"><title>RegOptimizer Preview</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#111;color:#f4f4f5;font:14px Segoe UI,Arial}
+header{height:86px;background:#151515;border-bottom:1px solid #292929;display:flex;align-items:center;padding:14px 24px;gap:14px}
+.logo{width:52px;height:52px;border-radius:12px;background:#8b5cf6;display:grid;place-items:center;font-size:30px;font-weight:700}
+h1{font-size:24px;margin:0} .muted{color:#a1a1aa} nav{display:flex;background:#171717;border-bottom:1px solid #292929;padding-left:18px}
+nav span{padding:15px 17px} nav .active{background:#8b5cf6}
+.toolbar{display:flex;gap:10px;padding:14px 18px} input{flex:1;background:#202020;border:1px solid #333;color:white;padding:10px;border-radius:6px}
+main{padding:0 18px 90px;max-width:1200px;margin:auto} .section{color:#c4b5fd;font-weight:600;margin:22px 0 9px}
+.card{display:grid;grid-template-columns:34px 1fr 120px;gap:10px;background:#181818;border:1px solid #2a2a2a;border-radius:10px;padding:13px;margin-bottom:8px}
+.switch{width:22px;height:22px;border-radius:11px;background:#8b5cf6;margin-top:2px} .title{font-weight:600;font-size:15px}
+.code{font:11px Consolas;color:#71717a;margin-top:6px;word-break:break-all} .risk{background:#27272a;border-radius:6px;padding:6px 8px;height:min-content;text-align:center}
+.badge{background:#2e1065;color:#ddd6fe;border-radius:5px;padding:2px 6px;font-size:10px;margin-left:8px}
+.warn{color:#fca5a5;font-weight:600;margin-top:5px} footer{position:fixed;bottom:0;left:0;right:0;background:#151515;border-top:1px solid #292929;padding:10px 18px;text-align:right}
+button{background:#202020;color:white;border:1px solid #333;padding:10px 14px;border-radius:5px;margin-left:8px} button.primary{background:#8b5cf6}
+</style></head>
+<body>
+<header><div class="logo">✓</div><div><h1>RegOptimizer</h1><div class="muted">Windows 11 • Administrador • 516 ajustes carregados</div></div></header>
+<nav><span>Geral</span><span class="active">Windows 11</span><span>Gaming</span><span>Rede</span><span>Hardware</span><span>Avançado</span></nav>
+<div class="toolbar"><input placeholder="Pesquisar por nome, caminho, descrição ou valor"></div>
+<main id="app"></main>
+<footer><button>Restaurar selecionados</button><button class="primary">Aplicar selecionados</button></footer>
+<script>
+const data=[{"Id": "REG0030", "SourceLine": 57, "DisplayName": "DisallowShaking", "Tab": "Windows 11", "Section": "Explorer / Desktop / Barra de tarefas", "Path": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "Name": "DisallowShaking", "RegistryType": "DWord", "ApplyRaw": "dword:00000001", "ApplyValue": 1, "Description": "Alteração de Registro para DisallowShaking. Consulte o caminho e o valor antes de aplicar.", "Risk": "Baixo", "OptimizerReference": "Optimize Performance", "OptimizerReferenceNote": "Mesmo valor do modo ativo (1).", "Warning": "", "RestoreStrategy": "SnapshotBeforeApply"}, {"Id": "REG0134", "SourceLine": 197, "DisplayName": "HwSchMode", "Tab": "Hardware", "Section": "GPU / Gráficos / Drivers", "Path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers", "Name": "HwSchMode", "RegistryType": "DWord", "ApplyRaw": "dword:00000002", "ApplyValue": 2, "Description": "Alteração de Registro para HwSchMode. Consulte o caminho e o valor antes de aplicar.", "Risk": "Moderado", "OptimizerReference": "Gaming Mode", "OptimizerReferenceNote": "Mesmo valor de ativação no Optimizer (2).", "Warning": "", "RestoreStrategy": "SnapshotBeforeApply"}, {"Id": "REG0065", "SourceLine": 95, "DisplayName": "GameDVR_Enabled", "Tab": "Windows 11", "Section": "Gaming / Xbox / Game Bar", "Path": "HKEY_CURRENT_USER\\System\\GameConfigStore", "Name": "GameDVR_Enabled", "RegistryType": "DWord", "ApplyRaw": "dword:00000000", "ApplyValue": 0, "Description": "Além de ter vínculos com o overlay do GameBar ele Desabilitar Otimizações de Tela inteira o que isso afeta? Faz com que o jogo priorize a configuração de cor do drive da placa de vídeo", "Risk": "Baixo", "OptimizerReference": "Disable Game Bar", "OptimizerReferenceNote": "Mesmo valor de desativação (0).", "Warning": "", "RestoreStrategy": "SnapshotBeforeApply"}, {"Id": "REG0092", "SourceLine": 134, "DisplayName": "EnableOplocks", "Tab": "Rede", "Section": "SMB / Compartilhamento", "Path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters", "Name": "EnableOplocks", "RegistryType": "DWord", "ApplyRaw": "dword:00000000", "ApplyValue": 0, "Description": "Alteração de Registro para EnableOplocks. Consulte o caminho e o valor antes de aplicar.", "Risk": "Moderado", "OptimizerReference": "", "OptimizerReferenceNote": "", "Warning": "", "RestoreStrategy": "SnapshotBeforeApply"}, {"Id": "REG0020", "SourceLine": 45, "DisplayName": "HungAppTimeout", "Tab": "Windows 11", "Section": "Explorer / Desktop / Barra de tarefas", "Path": "HKEY_CURRENT_USER\\Control Panel\\Desktop", "Name": "HungAppTimeout", "RegistryType": "String", "ApplyRaw": "\"4000\"", "ApplyValue": "4000", "Description": "Alteração de Registro para HungAppTimeout. Consulte o caminho e o valor antes de aplicar.", "Risk": "Baixo", "OptimizerReference": "Optimize Performance", "OptimizerReferenceNote": "Valor diferente: Optimizer usa 1000; seu arquivo usa 4000.", "Warning": "Valor diferente: Optimizer usa 1000; seu arquivo usa 4000.", "RestoreStrategy": "SnapshotBeforeApply"}, {"Id": "REG0337", "SourceLine": 563, "DisplayName": "Serviço WSearch — Inicialização", "Tab": "Geral", "Section": "Serviços do Windows", "Path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\WSearch", "Name": "Start", "RegistryType": "DWord", "ApplyRaw": "dword:00000001", "ApplyValue": 1, "Description": "Inicia automaticamente pois indexa arquivos e pastas no Windows, permitindo buscas rápidas e eficientes.", "Risk": "Alto", "OptimizerReference": "Disable/Enable Search", "OptimizerReferenceNote": "Divergente: Optimizer usa Start=4 para desativar e Start=2 para ativar; seu arquivo usa Start=1.", "Warning": "Divergente: Optimizer usa Start=4 para desativar e Start=2 para ativar; seu arquivo usa Start=1.", "RestoreStrategy": "SnapshotBeforeApply"}];
+const app=document.getElementById('app');
+let sec='';
+for(const t of data){
+  if(t.Section!==sec){sec=t.Section; app.insertAdjacentHTML('beforeend',`<div class="section">${sec}</div>`)}
+  const ref=t.OptimizerReference?`<span class="badge">${t.OptimizerReference}</span>`:'';
+  const warn=t.Warning?`<div class="warn">${t.Warning}</div>`:'';
+  app.insertAdjacentHTML('beforeend',`<div class="card"><div class="switch"></div><div><div class="title">${t.DisplayName}${ref}</div><div class="muted">${t.Description}</div><div class="code">${t.Path} → ${t.Name} = ${t.ApplyRaw}</div>${warn}</div><div class="risk">Risco: ${t.Risk}</div></div>`);
+}
+</script></body></html>

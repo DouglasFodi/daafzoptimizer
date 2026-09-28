@@ -1,0 +1,69 @@
+﻿Id;Categoria;Nome;Registros;Risco;Perfil;Revisar;Descricao
+DRIVER_SEARCH_POLICY;Atualizações;Busca de drivers;1;Moderado;Experimental;NAO;Controla a ordem/comportamento de pesquisa de drivers conforme o seu arquivo.
+UPDATE_SERVICES;Atualizações;Infraestrutura de Windows Update;3;Alto;Experimental;SIM;Agrupa BITS, Delivery Optimization e Update Orchestrator conforme seus valores.
+WINDOWS_UPDATE_POLICY;Atualizações;Windows Update e Delivery Optimization;7;Moderado;Experimental;NAO;Agrupa políticas de update, Store e Delivery Optimization do arquivo.
+KERNEL_MITIGATIONS_REVIEW;Avançado;Kernel / SEHOP / mitigações;6;Alto;Experimental;SIM;Agrupa overrides de segurança do kernel em múltiplos ControlSets. Bloqueado.
+POWER_THROTTLING;Energia;Desativar Power Throttling;2;Moderado;Gamer;NAO;Agrupa PowerThrottlingOff definido em diferentes caminhos.
+POWER_SETTINGS_VISIBILITY;Energia;Exposição de opções de energia;3;Moderado;Experimental;NAO;Agrupa Attributes/atributes das PowerSettings do arquivo.
+SLEEP_HIBERNATION;Energia;Hibernação e Modern Standby;6;Alto;Experimental;SIM;Agrupa Hibernate, CsEnabled, PlatformAoAcOverride e opções relacionadas.
+POWER_LATENCY_ADV;Energia;Latência de energia avançada;12;Alto;Experimental;SIM;Agrupa tolerâncias/latências e diagnósticos de energia.
+DWM_GRAPHICS;GPU;DWM / Direct3D / renderização;7;Moderado;Gamer;NAO;Agrupa DWM, Avalon.Graphics, Direct3D e overlays.
+DIRECTX_GPU_PREFERENCES;GPU;DirectX / VRR e GPU por aplicativo;3;Moderado;Gamer;NAO;Agrupa VRR global e preferência de GPU para os executáveis Delta Force presentes no arquivo.
+GPU_POWER_LATENCY_REVIEW;GPU;GPU power/latency avançado;26;Alto;Experimental;SIM;"Grande conjunto de latências de GraphicsDrivers/DXGKrnl; bloqueado para aplicação acidental."
+GPU_PREEMPTION_REVIEW;GPU;GPU preemption avançado;15;Alto;Experimental;SIM;Agrupa overrides de preempção do Graphics Scheduler. Mantido em revisão.
+HAGS;GPU;Hardware Accelerated GPU Scheduling;1;Moderado;Gamer;NAO;Aplica HwSchMode=2 conforme o seu arquivo.
+NVIDIA_DPC_PRIORITY;GPU;NVIDIA DPC / prioridade de thread;6;Alto;Experimental;NAO;Agrupa RmGpsPsEnablePerCpuCoreDpc e prioridade de thread NVIDIA.
+GPU_DRIVER_MISC_REVIEW;GPU;Outros overrides de GPU/driver;3;Alto;Experimental;SIM;Overrides NVIDIA/GraphicsDrivers restantes, dependentes de driver/hardware.
+GAMEBAR_CAPTURE;Gaming;Desativar Game Bar e capturas;18;Baixo;Gamer;NAO;Agrupa Game DVR, captura de áudio/microfone/cursor e políticas de Game Bar.
+MMCSS_GAMES;Gaming;MMCSS — perfil Games;4;Moderado;Gamer;NAO;Agrupa prioridade GPU/CPU, scheduling category e SFIO Priority do perfil Games.
+MMCSS_LOW_LATENCY;Gaming;MMCSS — perfil Low Latency;9;Moderado;Gamer;NAO;Agrupa o perfil Low Latency presente no arquivo.
+MMCSS_SYSTEM;Gaming;MMCSS — responsividade global;6;Moderado;Gamer;NAO;NetworkThrottlingIndex, SystemResponsiveness, NoLazyMode e AlwaysOn.
+GAME_MODE_REVIEW;Gaming;Modo Jogo — revisar valores;3;Alto;Gamer;SIM;"Seu arquivo contém AllowAutoGameMode=0 e AutoGameModeEnabled=1; o grupo é bloqueado até a inconsistência ser resolvida."
+GAME_PROCESS_PRIORITY;Gaming;Prioridade de CPU por jogo;3;Moderado;Gamer;NAO;Agrupa IFEO PerfOptions para PUBG/Delta Force presentes no arquivo.
+XBOX_SERVICES;Gaming;Serviços Xbox;7;Moderado;Gamer;NAO;Agrupa serviços Xbox desativados pelo seu .reg.
+STARTUP_BEHAVIOR;Geral;Inicialização mais direta;3;Baixo;Trabalho;NAO;Agrupa atraso de inicialização, som e itens de startup presentes no seu arquivo.
+MEMORY_MANAGEMENT_ADV;Hardware;Gerenciamento de memória avançado;18;Alto;Experimental;SIM;Agrupa paging executive, pools, SystemPages, IoPageLockLimit e outros overrides.
+CPU_SCHEDULER_PRIORITY;Hardware;Scheduler, foreground e IRQ;12;Alto;Gamer;NAO;Agrupa Win32PrioritySeparation, flags Games e prioridades IRQ.
+TIMER_TUNING;Hardware;Timers e coalescing;8;Alto;Experimental;NAO;Agrupa GlobalTimerResolutionRequests, CoalescingTimerInterval e SerializeTimerExpiration.
+INPUT_DRIVER_LATENCY;Input;Filas e prioridade USB/Input;3;Alto;Experimental;NAO;Agrupa ThreadPriority de USB e tamanhos de fila mouclass/kbdclass.
+MOUSE_RESPONSE;Input;Mouse sem aceleração / resposta;20;Moderado;Gamer;NAO;Agrupa sensibilidade, thresholds, curvas e opções de mouse do usuário/.DEFAULT.
+KEYBOARD_ACCESSIBILITY_RESPONSE;Input;Teclado e acessibilidade;9;Moderado;Gamer;NAO;Agrupa StickyKeys/MouseKeys/Keyboard Response e velocidade do teclado. Conflitos de tipo ficam fora deste grupo.
+APPEARANCE_MEDIA;Interface;Aparência, vídeo e áudio;5;Baixo;Trabalho;NAO;Agrupa tema, transparência, vídeo em bateria e preferência de ducking de áudio.
+TASKBAR_START_EXPERIENCE;Interface;Barra de tarefas e Menu Iniciar;9;Baixo;Trabalho;NAO;Agrupa comportamento da barra, Start, rastreamento e botões do Explorer.
+EXPLORER_VISUAL_BEHAVIOR;Interface;Explorer e efeitos visuais;30;Baixo;Trabalho;NAO;Agrupa efeitos visuais, DPI, arquivos ocultos, extensões e comportamento de listas.
+UI_RESPONSIVENESS;Interface;Interface mais responsiva;5;Baixo;Trabalho;NAO;Reduz atrasos de menus/hover e animações conforme os valores do seu arquivo.
+CLASSIC_CONTEXT_MENU;Interface;Menu de contexto clássico;1;Baixo;Trabalho;NAO;Restaura o menu de contexto clássico definido no seu arquivo.
+SHELL_BEHAVIOR;Interface;Shell, notificações e histórico;10;Baixo;Trabalho;NAO;Agrupa Centro de Notificações, Clipboard, Recent/Frequent e opções do shell.
+WEB_LANGUAGE_PRIVACY;Privacidade;Conteúdo web e idioma;2;Baixo;Trabalho;NAO;Agrupa avaliação de conteúdo web e envio de idioma HTTP.
+BROWSER_PRIVACY;Privacidade;Navegadores: telemetria e segundo plano;21;Moderado;Trabalho;NAO;Agrupa políticas Edge/Chrome e opções de telemetria/recomendações encontradas no .reg.
+ONEDRIVE_POLICY;Privacidade;OneDrive;1;Moderado;Trabalho;NAO;Política DisableFileSyncNGSC do seu arquivo.
+APP_PERMISSIONS_PRIVACY;Privacidade;Permissões de aplicativos;9;Moderado;Trabalho;NAO;Agrupa estados de consentimento de recursos dos aplicativos.
+SEARCH_WEB_PRIVACY;Privacidade;Pesquisa local sem conteúdo web;9;Baixo;Trabalho;NAO;Cortana, cloud search, localização e sugestões web da pesquisa.
+TELEMETRY_SERVICES;Privacidade;Serviços de telemetria e erros;4;Moderado;Trabalho;NAO;Agrupa DiagTrack, Diagnostic Service e Windows Error Reporting definidos no arquivo.
+SYNC_PRIVACY;Privacidade;Sincronização de configurações;6;Moderado;Trabalho;NAO;Agrupa políticas de sincronização de preferências/conta presentes no .reg.
+CONTENT_SUGGESTIONS;Privacidade;Sugestões, anúncios e conteúdo promocional;24;Baixo;Trabalho;NAO;Agrupa ContentDeliveryManager, Spotlight, feeds, News/Interests e experimentação.
+WINDOWS_TELEMETRY_PRIVACY;Privacidade;Telemetria do Windows;30;Moderado;Trabalho;NAO;Agrupa DataCollection, atividades, feedback, CEIP, WMI autologgers e telemetria do arquivo.
+ERROR_REPORTING_POLICY;Privacidade;Windows Error Reporting;4;Baixo;Trabalho;NAO;Agrupa políticas de relatório de erros.
+NETWORK_DRIVER_STACK;Rede;AFD / NDIS avançado;5;Alto;Experimental;NAO;Agrupa parâmetros AFD, NDIS, telemetria e prioridade de thread.
+NETWORK_CONNECTIVITY;Rede;Detecção de conectividade;1;Moderado;Experimental;NAO;Controla Active Probing/NCSI conforme o arquivo.
+MSMQ_TCP;Rede;MSMQ TCPNoDelay;2;Moderado;Experimental;NAO;Agrupa TCPNoDelay aplicado ao Microsoft Message Queuing.
+NETWORK_PROVIDER_PRIORITY;Rede;Prioridade de resolução de rede;5;Moderado;Experimental;NAO;Agrupa Class/DNS/Hosts/Local/NetBT priorities.
+SMB_TUNING_REVIEW;Rede;SMB / compartilhamento — revisar;7;Alto;Experimental;SIM;"Inclui EnableOplocks=0 e outros parâmetros LanmanServer; pode prejudicar compartilhamento e trabalho em rede."
+TCP_LOW_LATENCY;Rede;TCP — baixa latência;6;Moderado;Gamer;NAO;Agrupa TCPNoDelay, TcpAckFrequency e TCPDelAckTicks nos caminhos TCP/IP do seu arquivo.
+TCP_STACK_ADVANCED;Rede;TCP/IP avançado;7;Alto;Experimental;NAO;TTL, janela TCP, portas, timed wait e demais parâmetros de pilha.
+SOURCE_CONFLICTS;Revisão;Conflitos do arquivo de origem;6;Alto;Revisão;SIM;Mesmo caminho/nome aparece com tipos ou dados diferentes no .reg. Esses itens são exibidos para correção manual e não são aplicados em lote.
+SOURCE_DUPLICATES;Revisão;Duplicidades do arquivo de origem;5;Baixo;Revisão;SIM;Ocorrências repetidas do mesmo caminho/nome/valor. O mecanismo inteligente usa apenas a primeira ocorrência canônica.
+STORAGE_SECURITY_REVIEW;Segurança;Enhanced Storage / TCG;1;Alto;Experimental;SIM;"Configuração de ativação de segurança de armazenamento; exige revisão de hardware."
+SECURITY_MITIGATIONS_REVIEW;Segurança;Mitigações e integridade de código;2;Alto;Experimental;SIM;Agrupa HVCI/Device Guard e políticas de execução. Exige revisão específica da máquina.
+SMARTSCREEN_POLICY;Segurança;SmartScreen;1;Moderado;Experimental;NAO;Configuração de SmartScreen presente no arquivo.
+UAC_REVIEW;Segurança;UAC — alto impacto;2;Alto;Experimental;SIM;O arquivo desativa UAC/consentimento administrativo. Grupo bloqueado para evitar aplicação acidental.
+DEFENDER_REVIEW;Segurança;Windows Defender — alto impacto;12;Alto;Experimental;SIM;Agrupa políticas que desativam ou reduzem componentes do Defender. Mantido bloqueado por segurança.
+SERVICE_STARTUP_MISC;Serviços;Outros serviços do Windows;18;Alto;Experimental;SIM;Demais valores Start do seu arquivo que exigem avaliação por máquina.
+BROWSER_UPDATE_SERVICES;Serviços;Serviços de atualização de navegadores;7;Moderado;Experimental;NAO;Agrupa Edge/Chrome/Mozilla Update e serviços de elevação configurados no .reg.
+OPTIONAL_SERVICES_REVIEW;Serviços;Serviços opcionais críticos;11;Alto;Experimental;SIM;RDP, Netlogon, BitLocker, biometria, Work Folders e outros serviços que podem ser necessários em alguns PCs.
+SEARCH_INDEXING;Sistema;Pesquisa e indexação;4;Alto;Experimental;SIM;Agrupa DisableIndexing, estado de indexação e WSearch. Os valores originais variam por máquina.
+PREFETCH_SYSMMAIN;Sistema;Prefetch / SysMain;8;Moderado;Experimental;NAO;Agrupa alterações de Prefetch, Superfetch/SysMain e boot trace do seu arquivo.
+SVCHOST_SPLIT;Sistema;Separação de processos svchost;2;Moderado;Experimental;NAO;Agrupa SvcHostSplitThresholdInKB nos ControlSets do arquivo.
+SYSTEM_MAINTENANCE;Sistema;Sistema e manutenção;4;Moderado;Trabalho;NAO;Long paths, metadados de dispositivo, manutenção e timeout de serviços.
+STORAGE_SENSE;Sistema;Storage Sense;1;Baixo;Trabalho;NAO;Configuração de Storage Sense presente no seu arquivo.
+PROCESS_TIMEOUTS;Sistema;Timeouts de aplicativos e encerramento;5;Moderado;Experimental;NAO;Agrupa AutoEndTasks, HungAppTimeout, LowLevelHooksTimeout e tempos de encerramento.

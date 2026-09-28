@@ -1,0 +1,78 @@
+{
+  "summary": {
+    "entries": 516,
+    "uniquePaths": 216,
+    "types": {
+      "DWord": 453,
+      "String": 58,
+      "Binary": 5
+    },
+    "identicalDuplicateGroups": 5,
+    "conflictGroups": 3,
+    "optimizerReferenceItems": 38
+  },
+  "tabs": {
+    "Hardware": {
+      "count": 161,
+      "sections": {
+        "CPU / Memória / Scheduler": 43,
+        "GPU / Gráficos / Drivers": 61,
+        "Energia / Power Management": 23,
+        "Mouse / Teclado / USB / Input": 34
+      }
+    },
+    "Windows 11": {
+      "count": 202,
+      "sections": {
+        "Explorer / Shell / Interface": 11,
+        "Pesquisa / Indexação / Cortana": 13,
+        "Explorer / Desktop / Barra de tarefas": 51,
+        "Gaming / Xbox / Game Bar": 20,
+        "Tema / Aparência": 3,
+        "Privacidade / Telemetria": 21,
+        "Privacidade / Sugestões / Conteúdo": 16,
+        "Segurança / Defender / UAC / VBS": 17,
+        "Navegadores / Telemetria": 25,
+        "Windows Update / Delivery Optimization": 4,
+        "Privacidade / Sincronização": 6,
+        "Áudio / Multimídia": 1,
+        "Vídeo / Multimídia": 1,
+        "Armazenamento / Storage Sense": 1,
+        "Privacidade / Web / Idioma": 2,
+        "Menu de contexto clássico": 1,
+        "Privacidade / Permissões de aplicativos": 9
+      }
+    },
+    "Gaming": {
+      "count": 22,
+      "sections": {
+        "Perfis por jogo / prioridade de processo": 3,
+        "MMCSS / Prioridade multimídia": 13,
+        "MMCSS / Responsividade do sistema": 6
+      }
+    },
+    "Geral": {
+      "count": 62,
+      "sections": {
+        "Cache / Prefetch / SysMain": 4,
+        "Sistema / Manutenção": 4,
+        "Inicialização / Startup": 2,
+        "Serviços do Windows": 52
+      }
+    },
+    "Avançado": {
+      "count": 34,
+      "sections": {
+        "Políticas do Sistema": 27,
+        "Kernel / Mitigações / Compatibilidade": 7
+      }
+    },
+    "Rede": {
+      "count": 35,
+      "sections": {
+        "SMB / Compartilhamento": 7,
+        "TCP/IP / AFD / Latência": 28
+      }
+    }
+  }
+}

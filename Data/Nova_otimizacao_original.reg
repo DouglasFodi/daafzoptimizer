@@ -1,0 +1,920 @@
+Windows Registry Editor Version 5.00
+
+;Altera a paginação de memória utilizada do windows(verificação feita pelo Gerenciador de Tarefas) o cálculo é feito através a memória que o usuário possui.
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control]
+;; "SvcHostSplitThresholdInKB"=dword:02000000
+"SvcHostSplitThresholdInKB"=dword:04000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+;; "SvcHostSplitThresholdInKB"=dword:02000000
+"SvcHostSplitThresholdInKB"=dword:04000000
+;Ativar calendário do PC e Desativa o Centro de Notificações do Windows, impedindo que ele exiba notificações.
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+;; "DisableNotificationCenter"=dword:00000001 ;usar para desativar calendário
+"DisableNotificationCenter"=dword:00000000
+"DisableSearchBoxSuggestions"=dword:00000001
+;OBS: A indexação de arquivos permite que o Windows encontre arquivos mais rapidamente comentar linha caso o cliente não queira
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"DisableIndexing"=dword:00000001
+;DirectXUserGlobalSettings indica que a otimização para VR (realidade virtual) está desativada e o caminho do executável do jogo define a preferência de GPU para priorizar uma GPU dedicada em vez de uma integrada.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences]
+"DirectXUserGlobalSettings"="VRROptimizeEnable=0;"
+"C:\Program Files (x86)\Steam\steamapps\common\Delta Force\Game\DeltaForce\Binaries\Win64\DeltaForceClient-Win64-Shipping.exe"="GpuPreference=2;"
+"C:\Program Files (x86)\Steam\steamapps\common\Delta Force\Game\DeltaForceClient.exe"="GpuPreference=2;"
+;define a prioridade de classe e da prioridade a cpu no PUBG, adicionar novos jogos caso necessário e solicitado pelo cliente.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TslGame.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000003
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeltaForceClient-Win64-Shipping.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000003
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeltaForceClient.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000003
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects]
+"VisualFXSetting"=dword:00000003
+;Desabilita a animação da tela ao minimizar ou maximizar
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"=dword:00000000
+;Desativa animações podendo fazer com que a interface do usuário responda mais rapidamente, especialmente em sistemas mais lentos.
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"MinAnimate"="0"
+;Alteração feita para deixar o windows mais fluído e deixar o desktop mais leve e responsívo, afeta o desempenho do PC
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"AutoEndTasks"=dword:00000001
+"DragFullWindows"="1"
+"EnablePerProcessSystemDPI"=dword:00000000
+"FontSmoothing"="2"
+"FontSmoothingType"=dword:00000002
+"HungAppTimeout"="4000"
+"LogPixels"=dword:00000060
+"LowLevelHooksTimeout"=dword:00001000
+"MenuShowDelay"="100"
+"MouseWheelRouting"=dword:00000000
+"ScreenSaveActive"="0"
+"WaitToKillAppTimeout"="2000"
+"WaitToKillServiceTimeout"=dword:00002000
+"Win8DpiScaling"=dword:00000000
+;Configura o sistema para priorizar o desempenho em vez da aparência, o que pode ajudar a liberar recursos para jogos.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"DesktopLivePreviewHoverTime"=dword:00000000
+"DisallowShaking"=dword:00000001
+"DontPrettyPath"=dword:00000000
+"EnableBalloonTips"=dword:00000000
+"ExtendedUIHoverTime"=dword:00000000
+"Hidden"=dword:00000002
+"HideFileExt"=dword:00000000
+"HideIcons"=dword:00000000
+"IconsOnly"=dword:00000000
+"LaunchTo"=dword:00000001
+"ListviewAlphaSelect"=dword:00000000
+"ListviewShadow"=dword:00000000
+"nonetcrawling"=dword:00000001
+"ReindexedProfile"=dword:00000001
+"SeparateProcess"=dword:00000000
+"ServerAdminUI"=dword:00000000
+"ShowCompColor"=dword:00000001
+"ShowCortanaButton"=dword:00000000
+"ShowInfoTip"=dword:00000001
+"ShowStatusBar"=dword:00000001
+"ShowSuperHidden"=dword:00000000
+"ShowSyncProviderNotifications"=dword:00000001
+"ShowTaskViewButton"=dword:00000000
+"ShowTypeOverlay"=dword:00000001
+"Start_SearchFiles"=dword:00000002
+"Start_TrackDocs"=dword:00000000
+"Start_TrackProgs"=dword:00000000
+"StartMenuInit"=dword:0000000d
+"StoreAppsOnTaskbar"=dword:00000001
+"TaskbarAnimations"=dword:00000000
+"TaskbarMn"=dword:00000000
+"TaskbarSizeMove"=dword:00000000
+"TaskbarSmallIcons"=dword:00000000
+"TaskbarStateLastRun"=hex:46,5d,f4,5f,00,00,00,00
+"VisualFXSetting"=dword:00000002
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People]
+"PeopleBand"=dword:00000000
+;Além de ter vínculos com o overlay do GameBar ele Desabilitar Otimizações de Tela inteira o que isso afeta? Faz com que o jogo priorize a configuração de cor do drive da placa de vídeo
+[HKEY_CURRENT_USER\System\GameConfigStore]
+"GameDVR_Enabled"=dword:00000000 
+"GameDVR_FSEBehaviorMode"=dword:00000000 
+"GameDVR_FSEBehavior"=dword:00000002 
+"GameDVR_HonorUserFSEBehaviorMode"=dword:00000001 
+"GameDVR_DXGIHonorFSEWindowsCompatible"=dword:00000001 
+"GameDVR_EFSEFeatureFlags"=dword:00000000 
+"GameDVR_DSEBehavior"=dword:00000002
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\GameBar]
+"ShowStartupPanel"=dword:00000000 
+"GamePanelStartupTipIndex"=dword:00000003 
+"AllowAutoGameMode"=dword:00000000 
+"AutoGameModeEnabled"=dword:00000001
+"UseNexusForGameBarEnabled"=dword:00000000
+"GameDVR_Enabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GameDVR] 
+"AllowGameDVR"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc]
+"EnablePrefetch"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc]
+"EnablePrefetch"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblAuthManager]
+"EnablePrefetch"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR]
+"value"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\ApplicationManagement] 
+"AllowGameDVR"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR]
+"MicrophoneCaptureEnabled"=dword:00000000
+;Usado para desabilitar o xbox game bar para que não tenha notificações e overlay isso afeta o desempenho do windows
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR] 
+"AppCaptureEnabled"=dword:00000000
+"AudioCaptureEnabled"=dword:00000000
+"CursorCaptureEnabled"=dword:00000000
+"HistoricalCaptureEnabled"=dword:00000000
+;Desabilita o SMBv1, SMBv2 e SMBv3 que causam vulnerabilidades de segurança e faz com que a conexão fique mais segura e estável
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters]
+"autodisconnect"=dword:ffffffff
+"Size"=dword:00000003
+"SizReqBuf"=dword:00017424
+"EnableOplocks"=dword:00000000
+"IRPStackSize"=dword:00000014
+"SharingViolationDelay"=dword:00000000
+"SharingViolationRetries"=dword:00000000
+;Desabilita o prefetch e superfetch para que os mesmos não façam uma pré busca no SDD e NvMe, caso possuir um HD o ideal é deixar ativo para ter uma prébusca
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters]
+"EnablePrefetch"=dword:00000000
+"EnablePrefetcher"=dword:00000000
+"EnableSuperfetch"=dword:00000000
+"EnableBoottrace"=dword:00000000
+;Otimização do DNS e otimiza a forma que o windows interage com a internet
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider]
+"Class"=dword:00000008
+"DnsPriority"=dword:00000006
+"HostsPriority"=dword:00000005
+"LocalPriority"=dword:00000004
+"NetbtPriority"=dword:00000007
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces]
+"TCPNoDelay"=dword:00000001
+"TcpAckFrequency"=dword:00000001
+"TCPDelAckTicks"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+"DefaultTTL"=dword:00000040
+"GlobalMaxTcpWindowSize"=dword:0000ffff
+"MaxUserPort"=dword:0000fffe
+"Tcp1323Opts"=dword:00000001
+"TcpMaxDupAcks"=dword:00000002
+"TCPTimedWaitDelay"=dword:0000001e
+"TCPNoDelay"=dword:00000001
+"TcpAckFrequency"=dword:00000001
+"TCPDelAckTicks"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ\Parameters]
+"TCPNoDelay"=dword:00000001
+"TcpNoDelay"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSMQ]
+"TCPNoDelay"=dword:00000001
+"TcpNoDelay"=dword:00000001
+
+;Configurações Adicionais de Internet
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"AutoDetect"=dword:00000000
+
+;Define a prioridade da gpu e do windows para que o mesmo responda melhor e deixe o computador com mais desempenho
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games]
+"GPU Priority"=dword:00000008
+"Priority"=dword:00000006
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+;Define a prioridade da responsividade do sistema e da internet para que o PC consiga ter uma fluidez melhor
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:ffffffff
+"SystemResponsiveness"=dword:00000014
+"Attributes"=dword:00000002
+"NoLazyMode"=dword:00000001
+"LazyModeTimeout"=dword:00002710
+"AlwaysOn"=dword:00000001
+
+;Acelera o tempo que o windows leva para encerrar uma aplicação
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="2000"
+;Esta opção não terá nenhum efeito se a sua placa gráfica não suportar aceleração de hardware, faz com que o hardware ganhe mais performance.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers]
+"RmGpsPsEnablePerCpuCoreDpc"=dword:00000001
+"HwSchMode"=dword:00000002
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\GraphicsDrivers\Scheduler]
+"EnablePreemption"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm]
+"RmGpsPsEnablePerCpuCoreDpc"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\NVAPI]
+"RmGpsPsEnablePerCpuCoreDpc"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\Global\NVTweak]
+"RmGpsPsEnablePerCpuCoreDpc"=dword:00000001
+;Desativa a hibernação do windows e o powerthrottling
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"PowerThrottlingOff"=dword:00000001
+"HibernateEnabledDefault"=dword:00000000
+;Faz com que o Windows trate os processos de jogos com uma prioridade mais alta
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Games"=dword:00000001
+"Win32PrioritySeparation"=dword:00000026
+"ConvertibleSlateMode"=dword:00000000
+"IRQ0Priority"=dword:00000001
+"IRQ8Priority"=dword:00000001
+"IRQ16Priority"=dword:00000002
+"IRQ18Priority"=dword:00000001
+;Faz com que o Windows trate os processos de jogos com uma prioridade mais alta
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl]
+"Games"=dword:00000001
+"Win32PrioritySeparation"=dword:00000026
+"ConvertibleSlateMode"=dword:00000000
+"IRQ8Priority "=dword:00000001
+"IRQ16Priority"=dword:00000002
+;Desliga a transparência do windows
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"EnableTransparency"=dword:00000000
+"SystemUsesLightTheme"=dword:00000000
+"AppsUseLightTheme"=dword:00000000
+;Desabilita o Mouse Keys para que não seja possível movimentar o mouse pelo teclado numérico, binds no teclado numérico poderiam afetar diretamente o mouse.
+[HKEY_CURRENT_USER\Control Panel\Accessibility\MouseKeys]
+"Flags"="0"
+;Desativa as teclas Shift, Ctrl e Alt, para que as mesmas não sejam ativadas sem a necessidade de serem pressionadas simultaneamente com outras teclas.
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="0"
+;Desabilita as flags para que retire o atraso na resposta das teclas ao serem pressionadas.
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+"AutoRepeatDelay"="150"
+"AutoRepeatRate"="25"
+"BounceTime"="0"
+"DelayBeforeAcceptance"="0"
+"Flags"="0"
+;Quando definido em 0 Toggle Keys está desativado. Ou seja, o sistema não emitirá sons ao ativar ou desativar as teclas de bloqueio.
+[HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
+"Flags"="0"
+;Faz com que a funcionalidade de publicidade seja desativada para o usuário atual. Isso pode ajudar a aumentar a privacidade, já que impede que o Windows utilize dados para personalizar anúncios.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+"Enabled"=dword:00000000
+;útil para desenvolvedores e usuários que trabalham com estruturas de diretórios profundas.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"LongPathsEnabled"=dword:00000001
+;Desativa várias funcionalidades relacionadas ao gerenciamento de conteúdo e sugestões de aplicativos.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"SubscribedContent-338393Enabled"=dword:00000000
+"SubscribedContent-353694Enabled"=dword:00000000
+"SubscribedContent-353696Enabled"=dword:00000000
+"SubscribedContent-338387Enabled"=dword:00000000
+"SubscribedContent-338388Enabled"=dword:00000000
+"SubscribedContent-338389Enabled"=dword:00000000
+"SubscribedContent-353698Enabled"=dword:00000000
+"SystemPaneSuggestionsEnabled"=dword:00000000
+"ContentDeliveryAllowed"=dword:00000000
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEverEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+"DisableWindowsSpotlightFeatures"=dword:00000001
+"DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
+;Desativa as configurações de privacidade do recurso de reconhecimento de fala online do Microsoft Speech OneCore
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy]
+"HasAccepted"=dword:00000000
+;habilita o nunlock ao ligar o PC, tira o atraso ao pressionar uma tecla, e também tira um pouco do espaço de intervalo ao segurar uma tecla ao digitar.
+[HKEY_CURRENT_USER\Control Panel\Keyboard]
+"InitialKeyboardIndicators"="2"
+"KeyboardDelay"="0"
+"KeyboardSpeed"="31"
+"KeyboardDelay"=dword:00000000
+;Desativa o Diagnostico de infraestrutura
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}]
+"ScenarioExecutionEnabled"=dword:00000000
+;Desativa a participação em experimentos
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System]
+"AllowExperimentation"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\System\AllowExperimentation]
+"value"=dword:00000000
+;desativa os feeds de notícias no Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds]
+"EnableFeeds"=dword:00000000
+;desativa a funcionalidade de notícias e interesses na barra de tarefas do Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft]
+"AllowNewsAndInterests"=dword:00000000
+;Desativa coisas do windows defender para que ele não emita notificações nem ative para que não delete coisas sem ser uma real ameaça para o windows.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+"DisableAntiSpyware"=dword:00000001
+"DisableRoutinelyTakingAction"=dword:00000001
+"ServiceKeepAlive"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
+"DisableRealtimeMonitoring"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\SmartScreen]
+"ConfigureAppInstallControlEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Threats]
+"Threats_ThreatSeverityDefaultAction"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Threats\ThreatSeverityDefaultAction]
+"1"="6"
+"2"="6"
+"4"="6"
+"5"="6"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\UX Configuration]
+"Notification_Suppress"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting]
+"DisableEnhancedNotifications"=dword:00000001
+;habilita a preempção pois permite que a GPU gerencie melhor as tarefas em execução, podendo fazer a gpu ser mais responsiva
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Scheduler]
+"GPUPreemptionLevel"=dword:00000000
+"EnableAsyncMidBufferPreemption"=dword:00000000
+"EnableMidGfxPreemptionVGPU"=dword:00000000
+"EnableMidBufferPreemptionForHighTdrTimeout"=dword:00000000
+"EnableSCGMidBufferPreemption"=dword:00000000
+"PerfAnalyzeMidBufferPreemption"=dword:00000000
+"EnableMidGfxPreemption"=dword:00000000
+"EnableMidBufferPreemption"=dword:00000000
+"EnableCEPreemption"=dword:00000000
+"DisableCudaContextPreemption"=dword:00000000
+"DisablePreemptionOnS3S4"=dword:00000000
+"ComputePreemptionLevel"=dword:00000000
+"DisablePreemption"=dword:00000000
+;Ativado pois desativa funcionalidades que afetam e podem impactar diretamente o desempenho do windows.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Main]
+"DEPOff"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Main]
+"DEPOff"="1"
+;Esta configuração está relacionada ao gerenciamento de gráficos e pode influenciar como o sistema lida com a memória gráfica.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers]
+"DpiMapIommuContiguous"=dword:00000001
+;Desativado pois pode afetar a eficiência da gestão de memória e do hardware tras um impacto leve pra desempenho
+;; [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+;; "MoveImages"=dword:00000000
+;; "EnableCfg"=dword:00000000
+;; "CoalescingTimerInterval"=dword:00000000
+;Desativa a gestão de energia da GPU para não limitar a mesma
+;; [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GpuEnergyDrv]
+;; "Start"=dword:00000004
+;Desativado para reduzir o uso de recursos do sistema pelo Chrome.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome]
+"BackgroundModeEnabled"=dword:00000000
+"StartupBoostEnabled"=dword:00000000
+;Desativado para reduzir a carga de processos em segundo plano
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager] 
+"SoftLandingEnabled"=dword:00000000
+"RotatingLockScreenEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation]
+"DisableStartupSound"=dword:00000001
+;Ajuda a economizar recursos ao gerenciar miniaturas, impacto leve no desempenho.
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM]
+"AlwaysHibernateThumbnails"=dword:00000000
+;Desativam a coleta de dados de telemetria. Isso pode ajudar a preservar a privacidade
+[HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
+"AllowTelemetry"=dword:00000000
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\safer\codeidentifiers]
+"authenticodeenabled"=dword:00000000
+;Desativa o envio de dados adicionais para relatórios de erro. ;Desativa o Relatório de Erros
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Error Reporting]
+"DontSendAdditionalData"=dword:00000001
+"Disabled"=dword:00000001
+"LoggingDisabled"=dword:00000001
+"DoReport"=dword:00000000
+; Setado em 0 significa que o download é feito apenas de fontes diretas da Microsoft, sem compartilhar com outros PCs na rede.
+[HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Settings]
+"DownloadMode"=dword:00000000
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DownloadMode"=dword:00000000
+;Desativa as atualizações automáticas.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"NoAutoUpdate"=dword:00000001
+;Desabilita a inicialização automática dos programas no windows isso causa atraso de inicialização e impacta diretamente no desempenho
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdatem]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MicrosoftEdgeElevationService]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GoogleChromeElevationService]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gupdate]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gupdatem]
+"Start"=dword:00000004
+;Aumenta a responsividade do sistema pois o sistema não entra em modo de economia de energia fazendo com o que o mesmo não perca desempenho e Evita problemas de desempenho, como engasgos ou quedas de taxa de quadros
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"CoalescingTimerInterval"=dword:00000000
+"PlatformAoAcOverride"=dword:00000000
+"EnergyEstimationEnabled"=dword:00000000
+"EventProcessorEnabled"=dword:00000000
+"CsEnabled"=dword:00000000
+"SleepReliabilityDetailedDiagnostics"=dword:00000000
+"ExitLatency"=dword:00000001
+"ExitLatencyCheckEnabled"=dword:00000001
+"Latency"=dword:00000001
+"LatencyToleranceDefault"=dword:00000001
+"LatencyToleranceFSVP"=dword:00000001
+"LatencyTolerancePerfOverride"=dword:00000001
+"LatencyToleranceScreenOffIR"=dword:00000001
+"LatencyToleranceVSyncEnabled"=dword:00000001
+"RtlCapabilityCheckLatency"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager]
+"CoalescingTimerInterval"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"CoalescingTimerInterval"=dword:00000000
+"SerializeTimerExpiration"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"CoalescingTimerInterval"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Executive]
+"CoalescingTimerInterval"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\ModernSleep]
+"CoalescingTimerInterval"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Power]
+"RmGpsPsEnablePerCpuCoreDpc"=dword:00000001
+"DefaultD3TransitionLatencyActivelyUsed"=dword:00000001
+"DefaultD3TransitionLatencyIdleLongTime"=dword:00000001
+"DefaultD3TransitionLatencyIdleMonitorOff"=dword:00000001
+"DefaultD3TransitionLatencyIdleNoContext"=dword:00000001
+"DefaultD3TransitionLatencyIdleShortTime"=dword:00000001
+"DefaultD3TransitionLatencyIdleVeryLongTime"=dword:00000001
+"DefaultLatencyToleranceIdle0"=dword:00000001
+"DefaultLatencyToleranceIdle0MonitorOff"=dword:00000001
+"DefaultLatencyToleranceIdle1"=dword:00000001
+"DefaultLatencyToleranceIdle1MonitorOff"=dword:00000001
+"DefaultLatencyToleranceMemory"=dword:00000001
+"DefaultLatencyToleranceNoContext"=dword:00000001
+"DefaultLatencyToleranceNoContextMonitorOff"=dword:00000001
+"DefaultLatencyToleranceOther"=dword:00000001
+"DefaultLatencyToleranceTimerPeriod"=dword:00000001
+"DefaultMemoryRefreshLatencyToleranceActivelyUsed"=dword:00000001
+"DefaultMemoryRefreshLatencyToleranceMonitorOff"=dword:00000001
+"DefaultMemoryRefreshLatencyToleranceNoContext"=dword:00000001
+"Latency"=dword:00000001
+"MaxIAverageGraphicsLatencyInOneBucket"=dword:00000001
+"MiracastPerfTrackGraphicsLatency"=dword:00000001
+"MonitorLatencyTolerance"=dword:00000001
+"MonitorRefreshLatencyTolerance"=dword:00000001
+"TransitionLatency"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DXGKrnl]
+"MonitorLatencyTolerance"=dword:00000001
+"MonitorRefreshLatencyTolerance"=dword:00000001
+;Desabilita a "Inicialização Rápida" do Edge e faz com o que o mesmo não funcione em segundo plano quando não está sendo usado.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"StartupBoostEnabled"=dword:00000000
+"BackgroundModeEnabled"=dword:00000000
+;FastSendDatagramThreshold afeta a rede por isso o valor é definido para ter um desempenho melhor, o restante faz com que a microsoft não colete dados do windows não sobrecarregando com apps em segundo plano.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AFD\Parameters]
+"AITEnable"=dword:00000000
+"AllowTelemetry"=dword:00000000
+"CEIPEnable"=dword:00000000
+"FastSendDatagramThreshold"=dword:00064000
+;Desativa a sincronização das configurações de personalização do Windows entre dispositivos caso tenha mais de um windows logado com a mesma conta microsoft, serve para segurança do windows também pois não partilha senhas entre outra coisas.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync]
+"SyncPolicy"=dword:00000005
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization]
+"Enabled"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings]
+"Enabled"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials]
+"Enabled"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility]
+"Enabled"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows]
+"Enabled"=dword:00000000
+;Seta em 3 para que não tenha interferência no áudio quando entrar em uma chamada por exemplo "discord"
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+;ativa a tecla windows+V para verificar textos copiados
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableClipboardHistory"=dword:00000001
+;Ativa o modo que pode ser usado para testes avançados ou para desenvolvedores
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm]
+"OverlayTestMode"=dword:00000005
+;Desativa a Cortana, Desativa a pesquisa na nuvem, Desativa a Cortana na tela de bloqueio, Desativa o uso da localização para pesquisas, Desativa a pesquisa conectada na web, Desativa a pesquisa conectada na web em conexões com medição, Desativa a pesquisa na web. 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowCortana"=dword:00000000
+"AllowCloudSearch"=dword:00000000
+"AllowCortanaAboveLock"=dword:00000000
+"AllowSearchToUseLocation"=dword:00000000
+"ConnectedSearchUseWeb"=dword:00000000
+"ConnectedSearchUseWebOverMeteredConnections"=dword:00000000
+"DisableWebSearch"=dword:00000000
+;Afeta o input lag por isso é setado em 1 para OFF
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"GlobalTimerResolutionRequests"=dword:00000001
+;Habilita a aceleração de hardware para gráficos, pode melhorar o desempenho em aplicações que utilizam gráficos intensivos. E MaxMultisampleType usada para suavizar bordas em gráficos. 
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics]
+"DisableHWAcceleration"=dword:00000000
+"MaxMultisampleType"=dword:00000000
+;O download automático está ativado para todos os aplicativos, incluindo novos aplicativos e atualizações
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
+"AutoDownload"=dword:00000002
+;UseDpiScaling Desabilita a escalabilidade de DPI melhorando significativamente a resposta do mouse e pixel
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM]
+"UseDpiScaling"=dword:00000000
+"EnableAeroPeek"=dword:00000000
+;Ajusta a qualidade de vídeo para mais alto mesmo quando o usuário estiver usando o computador no modo bateria
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\VideoSettings]
+"VideoQualityOnBattery"=dword:00000001
+;Permitir que aplicativos não assinados sejam executados "apps suspeitos baixados pelo usuário"
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
+"Enabled"=dword:00000000
+;Habilita recursos adicionais ou configurações avançadas no Windows Explorer.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager]
+"EnthusiastMode"=dword:00000001
+;Desativa a configuração de engajamento do usuário, que pode estar relacionada a sugestões e recomendações do sistema.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement]
+"ScoobeSystemSettingEnabled"=dword:00000000
+;Desativa a preempção no agendador de drivers gráficos afeta o desempenho por isso é desligado
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Scheduler]
+"EnablePreemption"=dword:00000000
+;DisableAutomaticRestartSignOn impede que o Windows reinicie automaticamente e faça login no usuário após uma atualização ou falha.
+;EnableLUA desativa o Controle de Conta de Usuário / e ConsentPromptBehaviorAdmin define o comportamento do prompt de consentimento para administradores
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"DisableAutomaticRestartSignOn"=dword:00000001
+"EnableLUA"=dword:00000000
+"ConsentPromptBehaviorAdmin"=dword:00000000
+;Desativa a funcionalidade de "Storage Sense", que ajuda a liberar espaço em disco automaticamente
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\StorageSense]
+"AllowStorageSenseGlobal"=dword:00000000
+;Desativado para Não realizar atualizações automáticas ou manutenção programada no Mozilla
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MozillaMaintenance]
+"Start"=dword:00000004
+; Iniciado manualmente pois Filtra entradas do teclado
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsKeyboardFilter]
+"Start"=dword:00000003
+;Inicia automaticamente pois permite que o Windows e os aplicativos baixem atualizações de outros PCs na rede local ou na internet
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DoSvc]
+"Start"=dword:00000001
+;Inicia automaticamente pois gerencia a comunicação entre aplicativos que utilizam serviços de localização e o sistema operacional, permitindo que aplicativos acessem informações de mapas.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MapsBroker]
+"Start"=dword:00000001
+;Desativado pois coleta dados de diagnóstico e uso do Windows
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
+"Start"=dword:00000004
+;Iniciado manualmente pois permite que dispositivos conectados se comuniquem com o Windows, facilitando a integração de dispositivos como smartphones e tablets.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CDPSvc]
+"Start"=dword:00000003
+;Desativado para Não realizar atualizações automáticas do Edge
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\edgeupdate]
+"Start"=dword:00000004
+;Inicia automaticamente  pois permite que o Windows e outros aplicativos transfiram arquivos em segundo plano, utilizando a largura de banda de forma eficiente.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BITS]
+"Start"=dword:00000001
+;Iniciado manualmente pois está relacionado à virtualização e pode ser usado para gerenciar gráficos em ambientes virtuais.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vm3dservice]
+"Start"=dword:00000003
+;Inicia automaticamente pois protege a ativação do Windows e dos aplicativos, garantindo que o software esteja devidamente licenciado.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sppsvc]
+"Start"=dword:00000001
+;Iniciado manualmente pois está relacionado ao gerenciamento de dispositivos conectados e pode ser iniciado conforme necessário.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cbdhsvc_]
+"Start"=dword:00000003
+;Iniciado manualmente pois permite que aplicativos recebam notificações em tempo real do Windows.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnService]
+"Start"=dword:00000003
+;Inicia automaticamente pois indexa arquivos e pastas no Windows, permitindo buscas rápidas e eficientes.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch]
+"Start"=dword:00000001
+;Iniciado manualmente pois é usado para gerenciar a experiência do usuário em ambientes virtualizados.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]
+"Start"=dword:00000003
+;Iniciado manualmente pois gerencia a entrada de texto, incluindo métodos de entrada e correção automática.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TextInputManagementService]
+"Start"=dword:00000003
+;Iniciado manualmente pois gerencia dispositivos de armazenamento e pode ser iniciado conforme necessário.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\StorSvc]
+"Start"=dword:00000003
+;Iniciado manualmente pois armazena informações sobre o estado dos aplicativos e pode ser usado para restaurar sessões anteriores.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\StateRepository]
+"Start"=dword:00000003
+;Iniciado manualmente pois juda a resolver problemas de compatibilidade de programas, oferecendo soluções quando um aplicativo não funciona corretamente.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PcaSvc]
+"Start"=dword:00000003
+;Desativado pois é usado para gerenciar o acesso atribuído em dispositivos, permitindo que um dispositivo funcione em um modo restrito.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AssignedAccessManagerSvc]
+"Start"=dword:00000004
+;Desativado pois este serviço é relacionado à conectividade de rede
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AJRouter]
+"Start"=dword:00000004
+;habilita a opção de energia
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583]
+"Attributes"=dword:00000002
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\943c8cb6-6f93-4227-ad87-e9a3feec08d1]
+"atributes"=dword:00000002
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\be337238-0d82-4146-a960-4f3749d470c7]
+"Attributes"=dword:00000002
+;reduz a latência em jogos por fazer o número máximo de quadros que podem ser pré-renderizados pela GPU ser limitado a 1
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Direct3D]
+"MaxPreRenderedFrames"=dword:00000001
+;Melhora o desempenho desses serviços, permitindo que eles sejam processados mais rapidamente pelo sistema.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBXHCI\Parameters]
+"ThreadPriority"=dword:0000001f
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBHUB3\Parameters]
+"ThreadPriority"=dword:0000001f
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\Parameters]
+"ThreadPriority"=dword:0000001f
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NDIS\Parameters]
+"ThreadPriority"=dword:0000001f
+;Remove as tarefas agendadas relacionadas ao Microsoft Edge Update
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\MicrosoftEdgeUpdateTaskMachineCore]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\MicrosoftEdgeUpdateTaskMachineUA]
+;Ativa a atualização automática do horário e fuso horário
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate]
+"Start"=dword:00000003
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time]
+"Start"=dword:00000003
+;Impede que o Windows baixe metadados de dispositivos da rede, o que pode ser útil para aumentar a privacidade ou evitar downloads desnecessários.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
+"PreventDeviceMetadataFromNetwork"=dword:00000001
+;Impede que o Windows ofereça atualizações do Microsoft Removal Too
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT]
+"DontOfferThroughWUAU"=dword:00000001
+;Desativa a coleta dados de uso para melhorar o Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+;Desativa a Análise de Compatibilidade de Aplicativos e desativa a Experiência de Atualização Automática
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"AITEnable"=dword:00000000
+"DisableUAR"=dword:00000001
+;Desativa o AutoLogger e a coleta de dados de telemetria
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener]
+"Start"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger]
+"Start"=dword:00000000
+;Desativa a avaliação de conteúdo da web para aplicativos
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"=dword:00000000
+;Não envia informações sobre o idioma aceito em requisições HTTP
+[HKEY_CURRENT_USER\Control Panel\International\User Profile]
+"HttpAcceptLanguageOptOut"=dword:00000001
+;Otimiza a forma que o cursor do mouse e click respondem aos movimentos e ações
+[HKEY_USERS\.DEFAULT\Control Panel\Mouse]
+"ActiveWindowTracking"=dword:00000000
+"MouseSensitivity"="10"
+"MouseHoverTime"="10"
+"MouseSpeed"="-"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+"MouseAccel"="0"
+
+"SmoothMouseXCurve"=hex:\
+	00,00,00,00,00,00,00,00,\
+	C0,CC,0C,00,00,00,00,00,\
+	80,99,19,00,00,00,00,00,\
+	40,66,26,00,00,00,00,00,\
+	00,33,33,00,00,00,00,00
+"SmoothMouseYCurve"=hex:\
+	00,00,00,00,00,00,00,00,\
+	00,00,38,00,00,00,00,00,\
+	00,00,70,00,00,00,00,00,\
+	00,00,A8,00,00,00,00,00,\
+	00,00,E0,00,00,00,00,00
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"ActiveWindowTracking"=dword:00000000
+"MouseSensitivity"="10"
+"MouseHoverTime"="10"
+"MouseSpeed"="-"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+"MouseAccel"="0"
+
+"SmoothMouseXCurve"=hex:\
+	00,00,00,00,00,00,00,00,\
+	C0,CC,0C,00,00,00,00,00,\
+	80,99,19,00,00,00,00,00,\
+	40,66,26,00,00,00,00,00,\
+	00,33,33,00,00,00,00,00
+"SmoothMouseYCurve"=hex:\
+	00,00,00,00,00,00,00,00,\
+	00,00,38,00,00,00,00,00,\
+	00,00,70,00,00,00,00,00,\
+	00,00,A8,00,00,00,00,00,\
+	00,00,E0,00,00,00,00,00
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"TelemetrySalt"=dword:00000002
+"FirstRunTelemetryComplete"=dword:00000001
+"AppReadinessLogonComplete"=dword:00000001
+"ShowRecent"=dword:00000000
+"ShowFrequent"=dword:00000000
+"DesktopProcess"=dword:00000001
+"EnableAutoTray"=dword:00000001
+;Desativa a privacidade de coleta de dados pessoais
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Personalization\Settings]
+"AcceptedPrivacyPolicy"=dword:00000000
+;Desativa a coleta de dados de contatos para personalização de entrada
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore]
+"HarvestContacts"=dword:00000000
+;Relacionada à exibição de notificações sobre diagnósticos
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack]
+"ShowedToastAtLevel"=dword:00000001
+;Desativa a coleta de telemetria
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"AllowDesktopAnalyticsProcessing"=dword:00000000
+"DoNotShowFeedbackNotifications"=dword:00000000
+"AllowDeviceNameInTelemetry"=dword:00000000
+"MicrosoftEdgeDataOptIn"=dword:00000000
+"AllowUpdateComplianceProcessing"=dword:00000000
+"AllowCommercialDataPipeline"=dword:00000000
+;Desativa a coleta de dados de diagnóstico que permite experiências personalizadas no Windows.
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy]
+"TailoredExperiencesWithDiagnosticDataEnabled"=dword:00000000
+;Desativa a funcionalidade de transcrição de eventos, que pode ser usada para coletar informações sobre o uso do sistema.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack\EventTranscriptKey]
+"EnableEventTranscript"=dword:00000000
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
+"NumberOfSIUFInPeriod"=dword:00000000
+"PeriodInNanoSeconds"="-"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
+"DisabledByGroupPolicy"=dword:00000001
+;Permite downloads de outros PCs na rede local
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DODownloadMode"=dword:00000001
+;Desativa o Feed de Atividades, desativa o SmartScreen, desativa a publicação e o upload das atividades do usuário
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"EnableActivityFeed"=dword:00000000
+"EnableSmartScreen"=dword:00000000
+"PublishUserActivities"=dword:00000000
+"UploadUserActivities"=dword:00000000
+;Desativa a hibernação e impede que a opção de hibernação apareça nas opções de energia.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"HibernateEnabled"=dword:00000000
+"ShowHibernateOption"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings]
+"ShowHibernateOption"=dword:00000000
+;Inicia automaticamente o agendador de pacotes QoS no sistema Windows
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Psched]
+"start"=dword:00000001
+;Desativa os serviços de background do Xbox
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xbgm]
+"start"=dword:00000004
+;Desativa a manutenção automática do Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
+"MaintenanceDisabled"=dword:00000001
+;Otimiza a fila de dados do mouse
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
+"MouseDataQueueSize"=dword:0000001e
+;Otimiza a fila de dados do teclado
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters]
+"KeyboardDataQueueSize"=dword:0000001e
+;Otimiza a parte de memória para ser mais responsiva ao sistema e entregar uma melhor performance no windows
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"FeatureSettings"=dword:00000001
+"FeatureSettingsOverride"=dword:00000003
+"FeatureSettingsOverrideMask"=dword:00000003
+"FeaturesSettingsOverrideMask"=dword:00000003
+"ClearPageFileAtShutdown"=dword:00000000
+"DisablePagingExecutive"=dword:00000001
+"LargeSystemCache"=dword:00000000
+"NonPagedPoolQuota"=dword:00000000
+"NonPagedPoolSize"=dword:00000000
+"PagedPoolQuota"=dword:00000000
+"PagedPoolSize"=dword:000000c0
+"PhysicalAddressExtension"=dword:00000001
+"SessionPoolSize"=dword:000000c0
+"SessionViewSize"=dword:000000c0
+"SystemPages"=dword:ffffffff
+"IoPageLockLimit"=dword:00fefc00
+"PoolUsageMaximum"=dword:00000060
+"Start"=dword:00000004
+;Desativa proteções Specter e Meltdown para ter mais desempenho
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"DisableExceptionChainValidation"=dword:00000001
+"KernelSEHOPEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\kernel]
+"DisableExceptionChainValidation"=dword:00000001
+"KernelSEHOPEnabled"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\Session Manager\kernel]
+"DisableExceptionChainValidation"=dword:00000001
+"KernelSEHOPEnabled"=dword:00000000
+;Desativa a busca automática por drivers de hardware na internet.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
+"SearchOrderConfig"=dword:00000000
+;Desativa as atualizações e conteúdos que o Windows pode buscar e exibir
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds]
+"EnableFeeds"=dword:00000000															   
+;Oculta a funcionalidade "Meet Now" (encontros agora) que aparece na barra de tarefas							  
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"HideSCAMeetNow"=dword:00000001
+;Remove o atraso na inicialização dos programas
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize]
+"StartupDelayInMSec"=dword:00000000
+;Desativa o "Network Data Usage Monitoring" (NDU)
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Ndu]
+"Start"=dword:00000004
+;Faz com que o timbroker agendador de serviços execute manualmente/automaticamente quando exigido
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc]
+"Start"=dword:00000003
+;Desativa o powerthrottling que impede que o Windows limite o desempenho do CPU para economizar energia.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling]
+"PowerThrottlingOff"=dword:00000001
+;Desativa o SysMain que é responsável por otimizar o desempenho do sistema ao pré-carregar aplicativos na memória, isso afeta a performance e desativar é a melhor solução
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain]
+"Start"=dword:00000004
+;Desativa a coleta de dados de telemetria, melhora privacidade
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
+"AllowTelemetry"=dword:00000000
+;Garante que o "ctfmon.exe", que gerencia a entrada de texto e a barra de idiomas faz com que ele seja iniciado com o windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"ctfmon"="C:\Windows\System32\ctfmon.exe"
+;Desativa Widgets
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh]
+"AllowNewsAndInterests"=dword:00000000
+;ativa o menu antigo do windows 10 no windows 11
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86CA1AA0-34AA-4E8B-A509-50C905BAE2A2}]
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86CA1AA0-34AA-4E8B-A509-50C905BAE2A2}\InprocServer32]
+@=""
+;Desabilita o Diagtrack para não enviar informações para microsoft
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\DiagTrack]
+"Start"=dword:00000004
+;Desabilita serviços desnecessários
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\AssignedAccessManagerSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BDESVC]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\diagsvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\DialogBlockingService]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\lfsvc]
+"Start"=dword:00000002
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Netlogon]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\XblAuthManager]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\XblGameSave]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\xboxgip]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\XboxGipSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\XboxNetApiSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\XboxNetApiSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\xbgm]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\workfolderssvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WerSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WbioSrvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpcMonSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TermService]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DsmSvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Wecsvc]
+"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userNotificationListener]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics]
+"Value"="Allow"
+[HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios]
+"Value"="Allow"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Low Latency]
+"Affinity"=dword:00000000
+"Background Only"="False"
+"BackgroundPriority"=dword:00000006
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:00000008
+"Priority"=dword:00000006
+"Scheduling Category"="Realtime"
+"SFIO Priority"="High"
+"Latency Sensitive"="True"
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet]
+"EnableActiveProbing"=dword:00000000
+;desativa telemetria
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell]
+"UseActionCenterExperience"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"HideSCAHealth"=dword:00000001
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\OneDrive]
+"DisableFileSyncNGSC"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EnhancedStorageDevices]
+"TCGSecurityActivationDisabled"=dword:00000000
+;desativa telemetrias do Edge
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge]
+"CreateDesktopShortcutDefault"=dword:00000000
+"PersonalizationReportingEnabled"=dword:00000000
+"ShowRecommendationsEnabled"=dword:00000000
+"HideFirstRunExperience"=dword:00000001
+"UserFeedbackAllowed"=dword:00000000
+"ConfigureDoNotTrack"=dword:00000001
+"AlternateErrorPagesEnabled"=dword:00000000
+"EdgeCollectionsEnabled"=dword:00000000
+"EdgeShoppingAssistantEnabled"=dword:00000000
+"MicrosoftEdgeInsiderPromotionEnabled"=dword:00000000
+"PersonalizationReportingEnabled"=dword:00000000
+"ShowMicrosoftRewards"=dword:00000000
+"WebWidgetAllowed"=dword:00000000
+"DiagnosticData"=dword:00000000
+"EdgeAssetDeliveryServiceEnabled"=dword:00000000
+"EdgeCollectionsEnabled"=dword:00000000
+"CryptoWalletEnabled"=dword:00000000
+"WalletDonationEnabled"=dword:00000000
+;mudar parte do app da nvidia
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS]
+"EnableGR535"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
+"GPU_SCHEDULER_MODE"="22"

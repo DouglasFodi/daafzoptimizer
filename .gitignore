@@ -1,0 +1,10 @@
+﻿AuthServer/secret.php
+**/secret.php
+
+bin/
+obj/
+.vs/
+
+*.user
+*.suo
+*.pdb

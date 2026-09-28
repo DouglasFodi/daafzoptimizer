@@ -1,0 +1,1334 @@
+[
+  {
+    "Id": "DRIVER_SEARCH_POLICY",
+    "Name": "Busca de drivers",
+    "Category": "Atualizações",
+    "Description": "Controla a ordem/comportamento de pesquisa de drivers conforme o seu arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0441"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "UPDATE_SERVICES",
+    "Name": "Infraestrutura de Windows Update",
+    "Category": "Atualizações",
+    "Description": "Agrupa BITS, Delivery Optimization e Update Orchestrator conforme seus valores.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0327",
+      "REG0332",
+      "REG0338"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "WINDOWS_UPDATE_POLICY",
+    "Name": "Windows Update e Delivery Optimization",
+    "Category": "Atualizações",
+    "Description": "Agrupa políticas de update, Store e Delivery Optimization do arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0232",
+      "REG0233",
+      "REG0234",
+      "REG0313",
+      "REG0321",
+      "REG0356",
+      "REG0404"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "KERNEL_MITIGATIONS_REVIEW",
+    "Name": "Kernel / SEHOP / mitigações",
+    "Category": "Avançado",
+    "Description": "Agrupa overrides de segurança do kernel em múltiplos ControlSets. Bloqueado.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0435",
+      "REG0436",
+      "REG0437",
+      "REG0438",
+      "REG0439",
+      "REG0440"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "POWER_THROTTLING",
+    "Name": "Desativar Power Throttling",
+    "Category": "Energia",
+    "Description": "Agrupa PowerThrottlingOff definido em diferentes caminhos.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0139",
+      "REG0447"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "POWER_SETTINGS_VISIBILITY",
+    "Name": "Exposição de opções de energia",
+    "Category": "Energia",
+    "Description": "Agrupa Attributes/atributes das PowerSettings do arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0345",
+      "REG0346",
+      "REG0347"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SLEEP_HIBERNATION",
+    "Name": "Hibernação e Modern Standby",
+    "Category": "Energia",
+    "Description": "Agrupa Hibernate, CsEnabled, PlatformAoAcOverride e opções relacionadas.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0140",
+      "REG0241",
+      "REG0244",
+      "REG0409",
+      "REG0410",
+      "REG0411"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "POWER_LATENCY_ADV",
+    "Name": "Latência de energia avançada",
+    "Category": "Energia",
+    "Description": "Agrupa tolerâncias/latências e diagnósticos de energia.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0242",
+      "REG0243",
+      "REG0245",
+      "REG0246",
+      "REG0247",
+      "REG0248",
+      "REG0249",
+      "REG0250",
+      "REG0251",
+      "REG0252",
+      "REG0253",
+      "REG0254"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "DWM_GRAPHICS",
+    "Name": "DWM / Direct3D / renderização",
+    "Category": "GPU",
+    "Description": "Agrupa DWM, Avalon.Graphics, Direct3D e overlays.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0225",
+      "REG0302",
+      "REG0311",
+      "REG0312",
+      "REG0314",
+      "REG0315",
+      "REG0348"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "DIRECTX_GPU_PREFERENCES",
+    "Name": "DirectX / VRR e GPU por aplicativo",
+    "Category": "GPU",
+    "Description": "Agrupa VRR global e preferência de GPU para os executáveis Delta Force presentes no arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0006",
+      "REG0007",
+      "REG0008"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GPU_POWER_LATENCY_REVIEW",
+    "Name": "GPU power/latency avançado",
+    "Category": "GPU",
+    "Description": "Grande conjunto de latências de GraphicsDrivers/DXGKrnl; bloqueado para aplicação acidental.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0262",
+      "REG0263",
+      "REG0264",
+      "REG0265",
+      "REG0266",
+      "REG0267",
+      "REG0268",
+      "REG0269",
+      "REG0270",
+      "REG0271",
+      "REG0272",
+      "REG0273",
+      "REG0274",
+      "REG0275",
+      "REG0276",
+      "REG0277",
+      "REG0278",
+      "REG0279",
+      "REG0280",
+      "REG0281",
+      "REG0282",
+      "REG0283",
+      "REG0284",
+      "REG0285",
+      "REG0286",
+      "REG0287"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GPU_PREEMPTION_REVIEW",
+    "Name": "GPU preemption avançado",
+    "Category": "GPU",
+    "Description": "Agrupa overrides de preempção do Graphics Scheduler. Mantido em revisão.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0135",
+      "REG0204",
+      "REG0205",
+      "REG0206",
+      "REG0207",
+      "REG0208",
+      "REG0209",
+      "REG0210",
+      "REG0211",
+      "REG0212",
+      "REG0213",
+      "REG0214",
+      "REG0215",
+      "REG0216",
+      "REG0320"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "HAGS",
+    "Name": "Hardware Accelerated GPU Scheduling",
+    "Category": "GPU",
+    "Description": "Aplica HwSchMode=2 conforme o seu arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0134"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "NVIDIA_DPC_PRIORITY",
+    "Name": "NVIDIA DPC / prioridade de thread",
+    "Category": "GPU",
+    "Description": "Agrupa RmGpsPsEnablePerCpuCoreDpc e prioridade de thread NVIDIA.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0133",
+      "REG0136",
+      "REG0137",
+      "REG0138",
+      "REG0261",
+      "REG0351"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GPU_DRIVER_MISC_REVIEW",
+    "Name": "Outros overrides de GPU/driver",
+    "Category": "GPU",
+    "Description": "Overrides NVIDIA/GraphicsDrivers restantes, dependentes de driver/hardware.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0219",
+      "REG0515",
+      "REG0516"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GAMEBAR_CAPTURE",
+    "Name": "Desativar Game Bar e capturas",
+    "Category": "Gaming",
+    "Description": "Agrupa Game DVR, captura de áudio/microfone/cursor e políticas de Game Bar.",
+    "Risk": "Baixo",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0065",
+      "REG0067",
+      "REG0068",
+      "REG0069",
+      "REG0070",
+      "REG0071",
+      "REG0072",
+      "REG0073",
+      "REG0076",
+      "REG0077",
+      "REG0078",
+      "REG0082",
+      "REG0083",
+      "REG0084",
+      "REG0085",
+      "REG0086",
+      "REG0087",
+      "REG0088"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MMCSS_GAMES",
+    "Name": "MMCSS — perfil Games",
+    "Category": "Gaming",
+    "Description": "Agrupa prioridade GPU/CPU, scheduling category e SFIO Priority do perfil Games.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0122",
+      "REG0123",
+      "REG0124",
+      "REG0125"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MMCSS_LOW_LATENCY",
+    "Name": "MMCSS — perfil Low Latency",
+    "Category": "Gaming",
+    "Description": "Agrupa o perfil Low Latency presente no arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0483",
+      "REG0484",
+      "REG0485",
+      "REG0486",
+      "REG0487",
+      "REG0488",
+      "REG0489",
+      "REG0490",
+      "REG0491"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MMCSS_SYSTEM",
+    "Name": "MMCSS — responsividade global",
+    "Category": "Gaming",
+    "Description": "NetworkThrottlingIndex, SystemResponsiveness, NoLazyMode e AlwaysOn.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0126",
+      "REG0127",
+      "REG0128",
+      "REG0129",
+      "REG0130",
+      "REG0131"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GAME_MODE_REVIEW",
+    "Name": "Modo Jogo — revisar valores",
+    "Category": "Gaming",
+    "Description": "Seu arquivo contém AllowAutoGameMode=0 e AutoGameModeEnabled=1; o grupo é bloqueado até a inconsistência ser resolvida.",
+    "Risk": "Alto",
+    "Profile": "Gamer",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0066",
+      "REG0074",
+      "REG0075"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "GAME_PROCESS_PRIORITY",
+    "Name": "Prioridade de CPU por jogo",
+    "Category": "Gaming",
+    "Description": "Agrupa IFEO PerfOptions para PUBG/Delta Force presentes no arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0009",
+      "REG0010",
+      "REG0011"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "XBOX_SERVICES",
+    "Name": "Serviços Xbox",
+    "Category": "Gaming",
+    "Description": "Agrupa serviços Xbox desativados pelo seu .reg.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0413",
+      "REG0460",
+      "REG0461",
+      "REG0462",
+      "REG0463",
+      "REG0464",
+      "REG0466"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "STARTUP_BEHAVIOR",
+    "Name": "Inicialização mais direta",
+    "Category": "Geral",
+    "Description": "Agrupa atraso de inicialização, som e itens de startup presentes no seu arquivo.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0224",
+      "REG0444",
+      "REG0450"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MEMORY_MANAGEMENT_ADV",
+    "Name": "Gerenciamento de memória avançado",
+    "Category": "Hardware",
+    "Description": "Agrupa paging executive, pools, SystemPages, IoPageLockLimit e outros overrides.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0417",
+      "REG0418",
+      "REG0419",
+      "REG0420",
+      "REG0421",
+      "REG0422",
+      "REG0423",
+      "REG0424",
+      "REG0425",
+      "REG0426",
+      "REG0427",
+      "REG0428",
+      "REG0429",
+      "REG0430",
+      "REG0431",
+      "REG0432",
+      "REG0433",
+      "REG0434"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "CPU_SCHEDULER_PRIORITY",
+    "Name": "Scheduler, foreground e IRQ",
+    "Category": "Hardware",
+    "Description": "Agrupa Win32PrioritySeparation, flags Games e prioridades IRQ.",
+    "Risk": "Alto",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0141",
+      "REG0142",
+      "REG0143",
+      "REG0144",
+      "REG0145",
+      "REG0146",
+      "REG0147",
+      "REG0148",
+      "REG0149",
+      "REG0150",
+      "REG0151",
+      "REG0152"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "TIMER_TUNING",
+    "Name": "Timers e coalescing",
+    "Category": "Hardware",
+    "Description": "Agrupa GlobalTimerResolutionRequests, CoalescingTimerInterval e SerializeTimerExpiration.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0240",
+      "REG0255",
+      "REG0256",
+      "REG0257",
+      "REG0258",
+      "REG0259",
+      "REG0260",
+      "REG0310"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "INPUT_DRIVER_LATENCY",
+    "Name": "Filas e prioridade USB/Input",
+    "Category": "Input",
+    "Description": "Agrupa ThreadPriority de USB e tamanhos de fila mouclass/kbdclass.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0349",
+      "REG0350",
+      "REG0416"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MOUSE_RESPONSE",
+    "Name": "Mouse sem aceleração / resposta",
+    "Category": "Input",
+    "Description": "Agrupa sensibilidade, thresholds, curvas e opções de mouse do usuário/.DEFAULT.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0156",
+      "REG0364",
+      "REG0365",
+      "REG0366",
+      "REG0367",
+      "REG0368",
+      "REG0369",
+      "REG0370",
+      "REG0371",
+      "REG0372",
+      "REG0373",
+      "REG0374",
+      "REG0375",
+      "REG0376",
+      "REG0377",
+      "REG0378",
+      "REG0379",
+      "REG0380",
+      "REG0381",
+      "REG0415"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "KEYBOARD_ACCESSIBILITY_RESPONSE",
+    "Name": "Teclado e acessibilidade",
+    "Category": "Input",
+    "Description": "Agrupa StickyKeys/MouseKeys/Keyboard Response e velocidade do teclado. Conflitos de tipo ficam fora deste grupo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0157",
+      "REG0158",
+      "REG0159",
+      "REG0160",
+      "REG0161",
+      "REG0162",
+      "REG0163",
+      "REG0183",
+      "REG0185"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "APPEARANCE_MEDIA",
+    "Name": "Aparência, vídeo e áudio",
+    "Category": "Interface",
+    "Description": "Agrupa tema, transparência, vídeo em bateria e preferência de ducking de áudio.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0153",
+      "REG0154",
+      "REG0155",
+      "REG0300",
+      "REG0316"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "TASKBAR_START_EXPERIENCE",
+    "Name": "Barra de tarefas e Menu Iniciar",
+    "Category": "Interface",
+    "Description": "Agrupa comportamento da barra, Start, rastreamento e botões do Explorer.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0038",
+      "REG0054",
+      "REG0055",
+      "REG0057",
+      "REG0059",
+      "REG0060",
+      "REG0061",
+      "REG0062",
+      "REG0064"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "EXPLORER_VISUAL_BEHAVIOR",
+    "Name": "Explorer e efeitos visuais",
+    "Category": "Interface",
+    "Description": "Agrupa efeitos visuais, DPI, arquivos ocultos, extensões e comportamento de listas.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0012",
+      "REG0016",
+      "REG0017",
+      "REG0018",
+      "REG0019",
+      "REG0021",
+      "REG0024",
+      "REG0025",
+      "REG0028",
+      "REG0031",
+      "REG0032",
+      "REG0034",
+      "REG0035",
+      "REG0036",
+      "REG0037",
+      "REG0039",
+      "REG0040",
+      "REG0041",
+      "REG0043",
+      "REG0044",
+      "REG0045",
+      "REG0047",
+      "REG0048",
+      "REG0049",
+      "REG0050",
+      "REG0051",
+      "REG0052",
+      "REG0056",
+      "REG0063",
+      "REG0493"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "UI_RESPONSIVENESS",
+    "Name": "Interface mais responsiva",
+    "Category": "Interface",
+    "Description": "Reduz atrasos de menus/hover e animações conforme os valores do seu arquivo.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0023",
+      "REG0029",
+      "REG0030",
+      "REG0033",
+      "REG0058"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "CLASSIC_CONTEXT_MENU",
+    "Name": "Menu de contexto clássico",
+    "Category": "Interface",
+    "Description": "Restaura o menu de contexto clássico definido no seu arquivo.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0452"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SHELL_BEHAVIOR",
+    "Name": "Shell, notificações e histórico",
+    "Category": "Interface",
+    "Description": "Agrupa Centro de Notificações, Clipboard, Recent/Frequent e opções do shell.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0003",
+      "REG0301",
+      "REG0318",
+      "REG0384",
+      "REG0385",
+      "REG0386",
+      "REG0387",
+      "REG0388",
+      "REG0443",
+      "REG0494"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "WEB_LANGUAGE_PRIVACY",
+    "Name": "Conteúdo web e idioma",
+    "Category": "Privacidade",
+    "Description": "Agrupa avaliação de conteúdo web e envio de idioma HTTP.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0362",
+      "REG0363"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "BROWSER_PRIVACY",
+    "Name": "Navegadores: telemetria e segundo plano",
+    "Category": "Privacidade",
+    "Description": "Agrupa políticas Edge/Chrome e opções de telemetria/recomendações encontradas no .reg.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0220",
+      "REG0221",
+      "REG0288",
+      "REG0289",
+      "REG0396",
+      "REG0497",
+      "REG0498",
+      "REG0499",
+      "REG0500",
+      "REG0501",
+      "REG0502",
+      "REG0503",
+      "REG0504",
+      "REG0505",
+      "REG0506",
+      "REG0508",
+      "REG0509",
+      "REG0510",
+      "REG0511",
+      "REG0513",
+      "REG0514"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "ONEDRIVE_POLICY",
+    "Name": "OneDrive",
+    "Category": "Privacidade",
+    "Description": "Política DisableFileSyncNGSC do seu arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0495"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "APP_PERMISSIONS_PRIVACY",
+    "Name": "Permissões de aplicativos",
+    "Category": "Privacidade",
+    "Description": "Agrupa estados de consentimento de recursos dos aplicativos.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0474",
+      "REG0475",
+      "REG0476",
+      "REG0477",
+      "REG0478",
+      "REG0479",
+      "REG0480",
+      "REG0481",
+      "REG0482"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SEARCH_WEB_PRIVACY",
+    "Name": "Pesquisa local sem conteúdo web",
+    "Category": "Privacidade",
+    "Description": "Cortana, cloud search, localização e sugestões web da pesquisa.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0004",
+      "REG0046",
+      "REG0303",
+      "REG0304",
+      "REG0305",
+      "REG0306",
+      "REG0307",
+      "REG0308",
+      "REG0309"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "TELEMETRY_SERVICES",
+    "Name": "Serviços de telemetria e erros",
+    "Category": "Privacidade",
+    "Description": "Agrupa DiagTrack, Diagnostic Service e Windows Error Reporting definidos no arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0329",
+      "REG0453",
+      "REG0456",
+      "REG0468"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SYNC_PRIVACY",
+    "Name": "Sincronização de configurações",
+    "Category": "Privacidade",
+    "Description": "Agrupa políticas de sincronização de preferências/conta presentes no .reg.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0294",
+      "REG0295",
+      "REG0296",
+      "REG0297",
+      "REG0298",
+      "REG0299"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "CONTENT_SUGGESTIONS",
+    "Name": "Sugestões, anúncios e conteúdo promocional",
+    "Category": "Privacidade",
+    "Description": "Agrupa ContentDeliveryManager, Spotlight, feeds, News/Interests e experimentação.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0166",
+      "REG0167",
+      "REG0168",
+      "REG0169",
+      "REG0170",
+      "REG0171",
+      "REG0172",
+      "REG0173",
+      "REG0174",
+      "REG0175",
+      "REG0176",
+      "REG0177",
+      "REG0178",
+      "REG0179",
+      "REG0180",
+      "REG0188",
+      "REG0189",
+      "REG0190",
+      "REG0191",
+      "REG0222",
+      "REG0223",
+      "REG0319",
+      "REG0442",
+      "REG0451"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "WINDOWS_TELEMETRY_PRIVACY",
+    "Name": "Telemetria do Windows",
+    "Category": "Privacidade",
+    "Description": "Agrupa DataCollection, atividades, feedback, CEIP, WMI autologgers e telemetria do arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0164",
+      "REG0181",
+      "REG0182",
+      "REG0187",
+      "REG0226",
+      "REG0357",
+      "REG0358",
+      "REG0359",
+      "REG0360",
+      "REG0361",
+      "REG0382",
+      "REG0383",
+      "REG0389",
+      "REG0390",
+      "REG0391",
+      "REG0392",
+      "REG0393",
+      "REG0394",
+      "REG0395",
+      "REG0397",
+      "REG0398",
+      "REG0399",
+      "REG0400",
+      "REG0401",
+      "REG0402",
+      "REG0403",
+      "REG0405",
+      "REG0407",
+      "REG0408",
+      "REG0449"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "ERROR_REPORTING_POLICY",
+    "Name": "Windows Error Reporting",
+    "Category": "Privacidade",
+    "Description": "Agrupa políticas de relatório de erros.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0228",
+      "REG0229",
+      "REG0230",
+      "REG0231"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "NETWORK_DRIVER_STACK",
+    "Name": "AFD / NDIS avançado",
+    "Category": "Rede",
+    "Description": "Agrupa parâmetros AFD, NDIS, telemetria e prioridade de thread.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0290",
+      "REG0291",
+      "REG0292",
+      "REG0293",
+      "REG0352"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "NETWORK_CONNECTIVITY",
+    "Name": "Detecção de conectividade",
+    "Category": "Rede",
+    "Description": "Controla Active Probing/NCSI conforme o arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0492"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "MSMQ_TCP",
+    "Name": "MSMQ TCPNoDelay",
+    "Category": "Rede",
+    "Description": "Agrupa TCPNoDelay aplicado ao Microsoft Message Queuing.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0117",
+      "REG0119"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "NETWORK_PROVIDER_PRIORITY",
+    "Name": "Prioridade de resolução de rede",
+    "Category": "Rede",
+    "Description": "Agrupa Class/DNS/Hosts/Local/NetBT priorities.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0100",
+      "REG0101",
+      "REG0102",
+      "REG0103",
+      "REG0104"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SMB_TUNING_REVIEW",
+    "Name": "SMB / compartilhamento — revisar",
+    "Category": "Rede",
+    "Description": "Inclui EnableOplocks=0 e outros parâmetros LanmanServer; pode prejudicar compartilhamento e trabalho em rede.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0089",
+      "REG0090",
+      "REG0091",
+      "REG0092",
+      "REG0093",
+      "REG0094",
+      "REG0095"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "TCP_LOW_LATENCY",
+    "Name": "TCP — baixa latência",
+    "Category": "Rede",
+    "Description": "Agrupa TCPNoDelay, TcpAckFrequency e TCPDelAckTicks nos caminhos TCP/IP do seu arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Gamer",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0105",
+      "REG0106",
+      "REG0107",
+      "REG0114",
+      "REG0115",
+      "REG0116"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "TCP_STACK_ADVANCED",
+    "Name": "TCP/IP avançado",
+    "Category": "Rede",
+    "Description": "TTL, janela TCP, portas, timed wait e demais parâmetros de pilha.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0108",
+      "REG0109",
+      "REG0110",
+      "REG0111",
+      "REG0112",
+      "REG0113",
+      "REG0121"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "STORAGE_SECURITY_REVIEW",
+    "Name": "Enhanced Storage / TCG",
+    "Category": "Segurança",
+    "Description": "Configuração de ativação de segurança de armazenamento; exige revisão de hardware.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0496"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SECURITY_MITIGATIONS_REVIEW",
+    "Name": "Mitigações e integridade de código",
+    "Category": "Segurança",
+    "Description": "Agrupa HVCI/Device Guard e políticas de execução. Exige revisão específica da máquina.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0227",
+      "REG0317"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SMARTSCREEN_POLICY",
+    "Name": "SmartScreen",
+    "Category": "Segurança",
+    "Description": "Configuração de SmartScreen presente no arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0406"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "UAC_REVIEW",
+    "Name": "UAC — alto impacto",
+    "Category": "Segurança",
+    "Description": "O arquivo desativa UAC/consentimento administrativo. Grupo bloqueado para evitar aplicação acidental.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0322",
+      "REG0323"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "DEFENDER_REVIEW",
+    "Name": "Windows Defender — alto impacto",
+    "Category": "Segurança",
+    "Description": "Agrupa políticas que desativam ou reduzem componentes do Defender. Mantido bloqueado por segurança.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0192",
+      "REG0193",
+      "REG0194",
+      "REG0195",
+      "REG0196",
+      "REG0197",
+      "REG0198",
+      "REG0199",
+      "REG0200",
+      "REG0201",
+      "REG0202",
+      "REG0203"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SERVICE_STARTUP_MISC",
+    "Name": "Outros serviços do Windows",
+    "Category": "Serviços",
+    "Description": "Demais valores Start do seu arquivo que exigem avaliação por máquina.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0326",
+      "REG0328",
+      "REG0330",
+      "REG0333",
+      "REG0334",
+      "REG0335",
+      "REG0336",
+      "REG0339",
+      "REG0340",
+      "REG0341",
+      "REG0342",
+      "REG0353",
+      "REG0354",
+      "REG0412",
+      "REG0445",
+      "REG0446",
+      "REG0458",
+      "REG0470"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "BROWSER_UPDATE_SERVICES",
+    "Name": "Serviços de atualização de navegadores",
+    "Category": "Serviços",
+    "Description": "Agrupa Edge/Chrome/Mozilla Update e serviços de elevação configurados no .reg.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0235",
+      "REG0236",
+      "REG0237",
+      "REG0238",
+      "REG0239",
+      "REG0325",
+      "REG0331"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "OPTIONAL_SERVICES_REVIEW",
+    "Name": "Serviços opcionais críticos",
+    "Category": "Serviços",
+    "Description": "RDP, Netlogon, BitLocker, biometria, Work Folders e outros serviços que podem ser necessários em alguns PCs.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0343",
+      "REG0344",
+      "REG0454",
+      "REG0455",
+      "REG0457",
+      "REG0459",
+      "REG0467",
+      "REG0469",
+      "REG0471",
+      "REG0472",
+      "REG0473"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SEARCH_INDEXING",
+    "Name": "Pesquisa e indexação",
+    "Category": "Sistema",
+    "Description": "Agrupa DisableIndexing, estado de indexação e WSearch. Os valores originais variam por máquina.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0005",
+      "REG0042",
+      "REG0053",
+      "REG0337"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "PREFETCH_SYSMMAIN",
+    "Name": "Prefetch / SysMain",
+    "Category": "Sistema",
+    "Description": "Agrupa alterações de Prefetch, Superfetch/SysMain e boot trace do seu arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0079",
+      "REG0080",
+      "REG0081",
+      "REG0096",
+      "REG0097",
+      "REG0098",
+      "REG0099",
+      "REG0448"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SVCHOST_SPLIT",
+    "Name": "Separação de processos svchost",
+    "Category": "Sistema",
+    "Description": "Agrupa SvcHostSplitThresholdInKB nos ControlSets do arquivo.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0001",
+      "REG0002"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SYSTEM_MAINTENANCE",
+    "Name": "Sistema e manutenção",
+    "Category": "Sistema",
+    "Description": "Long paths, metadados de dispositivo, manutenção e timeout de serviços.",
+    "Risk": "Moderado",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0132",
+      "REG0165",
+      "REG0355",
+      "REG0414"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "STORAGE_SENSE",
+    "Name": "Storage Sense",
+    "Category": "Sistema",
+    "Description": "Configuração de Storage Sense presente no seu arquivo.",
+    "Risk": "Baixo",
+    "Profile": "Trabalho",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0324"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "PROCESS_TIMEOUTS",
+    "Name": "Timeouts de aplicativos e encerramento",
+    "Category": "Sistema",
+    "Description": "Agrupa AutoEndTasks, HungAppTimeout, LowLevelHooksTimeout e tempos de encerramento.",
+    "Risk": "Moderado",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [
+      "REG0015",
+      "REG0020",
+      "REG0022",
+      "REG0026",
+      "REG0027"
+    ],
+    "Notes": ""
+  },
+  {
+    "Id": "SOURCE_CONFLICTS",
+    "Name": "Conflitos do arquivo de origem",
+    "Category": "Revisão",
+    "Description": "Mesmo caminho/nome aparece com tipos ou dados diferentes no .reg. Esses itens são exibidos para correção manual e não são aplicados em lote.",
+    "Risk": "Alto",
+    "Profile": "Revisão",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0013",
+      "REG0014",
+      "REG0184",
+      "REG0186",
+      "REG0217",
+      "REG0218"
+    ],
+    "Notes": "Corrija a origem antes de transformar estes registros em opção aplicável."
+  },
+  {
+    "Id": "SOURCE_DUPLICATES",
+    "Name": "Duplicidades do arquivo de origem",
+    "Category": "Revisão",
+    "Description": "Ocorrências repetidas do mesmo caminho/nome/valor. O mecanismo inteligente usa apenas a primeira ocorrência canônica.",
+    "Risk": "Baixo",
+    "Profile": "Revisão",
+    "ReviewRequired": true,
+    "TweakIds": [
+      "REG0118",
+      "REG0120",
+      "REG0465",
+      "REG0507",
+      "REG0512"
+    ],
+    "Notes": "Não é erro funcional, mas deve ser limpo no .reg original."
+  }
+]
