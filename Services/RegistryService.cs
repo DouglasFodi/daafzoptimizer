@@ -105,6 +105,19 @@ public static class RegistryService
                 throw new NotSupportedException($"Tipo não suportado automaticamente: {t.RegistryType} ({t.Id})");
         }
 
+        if (t.Name == "@")
+        {
+            // @="" em arquivos .reg significa:
+            // valor padrão/sem nome, REG_SZ, string vazia.
+            key.SetValue("", value, kind);
+            key.Flush();
+        }
+        else
+        {
+            key.SetValue(t.Name, value, kind);
+            key.Flush();
+        }
+        
         key.SetValue(name, value, kind);
     }
 
