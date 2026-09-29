@@ -10,14 +10,19 @@ public static class SmartCatalogService
         PropertyNameCaseInsensitive = true
     };
 
-    public static List<SmartOption> LoadOptions(IReadOnlyDictionary<string, Tweak> tweaks)
+    public static List<SmartOption> LoadOptions(
+        IReadOnlyDictionary<string, Tweak> tweaks,
+        IReadOnlyDictionary<string, RegistryOperation> operations)
     {
         var path = Path.Combine(AppContext.BaseDirectory, "Data", "smart_options.json");
         var items = JsonSerializer.Deserialize<List<SmartOption>>(File.ReadAllText(path), Options)
                     ?? new List<SmartOption>();
 
         foreach (var option in items)
+        {
             option.Items = option.TweakIds.Where(tweaks.ContainsKey).Select(id => tweaks[id]).ToList();
+            option.Operations = option.OperationIds.Where(operations.ContainsKey).Select(id => operations[id]).ToList();
+        }
 
         return items;
     }

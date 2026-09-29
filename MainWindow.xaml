@@ -78,6 +78,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="230"/>
                             <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="SmartSearchBox" TextChanged="SmartFilterChanged"
                                  ToolTip="Pesquisar opção, descrição, categoria ou registro"/>
@@ -90,6 +91,8 @@
                             <ComboBoxItem Content="Moderado"/>
                             <ComboBoxItem Content="Alto"/>
                         </ComboBox>
+                        <Button Grid.Column="3" Content="Selecionar tudo" Click="SelectAllSmart_Click"
+                                Margin="10,0,0,0"/>
                     </Grid>
 
                     <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
@@ -123,8 +126,8 @@
                                                                     <Border Background="#2E1065" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
                                                                         <TextBlock Text="{Binding Profile}" FontSize="10" Foreground="#DDD6FE"/>
                                                                     </Border>
-                                                                    <Border Background="#3F1D1D" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
-                                                                        <TextBlock Text="{Binding StatusText}" FontSize="10" Foreground="#FCA5A5"/>
+                                                                    <Border Background="{Binding StatusBackground}" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
+                                                                        <TextBlock Text="{Binding StatusText}" FontSize="10" Foreground="{Binding StatusForeground}"/>
                                                                     </Border>
                                                                 </StackPanel>
                                                                 <TextBlock Text="{Binding Description}" Foreground="{StaticResource Muted}"
@@ -142,9 +145,38 @@
                                                                                         <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="11"/>
                                                                                         <TextBlock Text="{Binding Path}" FontFamily="Consolas"
                                                                                                    Foreground="#71717A" FontSize="9" TextWrapping="Wrap"/>
-                                                                                        <TextBlock Text="{Binding ApplyRaw, StringFormat=Aplicar: {0}}"
+                                                                                        <TextBlock Text="{Binding RegistryAssignmentDisplay, StringFormat=Aplicar: {0}}"
                                                                                                    FontFamily="Consolas" Foreground="#A1A1AA" FontSize="9"/>
                                                                                         <TextBlock Text="{Binding Warning}" Foreground="#FCA5A5"
+                                                                                                   FontSize="9" TextWrapping="Wrap"/>
+                                                                                    </StackPanel>
+                                                                                </Border>
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </Expander>
+                                                                <Expander Header="Ver operações estruturais" Foreground="#F59E0B" Margin="0,6,0,0">
+                                                                    <Expander.Style>
+                                                                        <Style TargetType="Expander">
+                                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding HasOperations}" Value="False">
+                                                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Expander.Style>
+                                                                    <ItemsControl ItemsSource="{Binding Operations}">
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <Border Background="#141414" BorderBrush="#3A2A18"
+                                                                                        BorderThickness="1" CornerRadius="6"
+                                                                                        Padding="8" Margin="0,3">
+                                                                                    <StackPanel>
+                                                                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="11"/>
+                                                                                        <TextBlock Text="{Binding OperationDisplay}" FontFamily="Consolas"
+                                                                                                   Foreground="#FBBF24" FontSize="9" TextWrapping="Wrap"/>
+                                                                                        <TextBlock Text="{Binding Description}" Foreground="#A1A1AA"
                                                                                                    FontSize="9" TextWrapping="Wrap"/>
                                                                                     </StackPanel>
                                                                                 </Border>
@@ -204,6 +236,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="210"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="SearchBox" TextChanged="FilterChanged"
                                  ToolTip="Pesquisar por nome, caminho, descrição ou valor"/>
@@ -214,7 +247,9 @@
                             <ComboBoxItem Content="Moderado"/>
                             <ComboBoxItem Content="Alto"/>
                         </ComboBox>
-                        <Button Grid.Column="2" Content="Limpar seleção" Click="ClearIndividualSelection_Click"
+                        <Button Grid.Column="2" Content="Selecionar tudo" Click="SelectAllIndividual_Click"
+                                Margin="10,0,0,0"/>
+                        <Button Grid.Column="3" Content="Limpar seleção" Click="ClearIndividualSelection_Click"
                                 Margin="10,0,0,0"/>
                     </Grid>
 
@@ -245,6 +280,9 @@
                                                                     <Border Background="#27272A" CornerRadius="5" Padding="7,2" Margin="8,0,0,0">
                                                                         <TextBlock Text="{Binding RegistryType}" FontSize="10" Foreground="#D4D4D8"/>
                                                                     </Border>
+                                                                    <Border Background="{Binding AppliedStatusBackground}" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
+                                                                        <TextBlock Text="{Binding AppliedStatusText}" FontSize="10" Foreground="{Binding AppliedStatusForeground}"/>
+                                                                    </Border>
                                                                     <Border Background="#2E1065" CornerRadius="5" Padding="7,2" Margin="6,0,0,0">
                                                                         <TextBlock Text="{Binding OptimizerReference}" FontSize="10" Foreground="#DDD6FE"/>
                                                                     </Border>
@@ -253,7 +291,7 @@
                                                                            TextWrapping="Wrap" Margin="0,5,0,0"/>
                                                                 <TextBlock Text="{Binding Path}" Foreground="#71717A"
                                                                            FontFamily="Consolas" FontSize="10" TextWrapping="Wrap" Margin="0,6,0,0"/>
-                                                                <TextBlock Text="{Binding ApplyRaw, StringFormat=Valor: {0}}"
+                                                                <TextBlock Text="{Binding RegistryAssignmentDisplay, StringFormat=Registro: {0}}"
                                                                            Foreground="#A1A1AA" FontFamily="Consolas" FontSize="10" Margin="0,2,0,0"/>
                                                                 <TextBlock Text="{Binding Warning}" Foreground="#FCA5A5"
                                                                            FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,5,0,0"/>

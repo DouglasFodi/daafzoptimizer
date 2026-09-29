@@ -7,6 +7,7 @@ public sealed class RegistrySnapshot
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public string OperationLabel { get; set; } = "";
     public List<RegistrySnapshotItem> Items { get; set; } = new();
+    public List<RegistryOperationSnapshotItem> Operations { get; set; } = new();
 }
 
 public sealed class RegistrySnapshotItem

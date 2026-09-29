@@ -1,0 +1,20 @@
+PATCH v3.7 - GitHub Ready
+
+Inclui os refinamentos v3.2-v3.6:
+- fidelidade/validacao do .reg e operacoes estruturais
+- @="" do valor padrao reforcado
+- deteccao automatica das otimizacoes ja existentes no PC
+- Selecionar tudo nas abas inteligente e individual
+- tratamento seguro de conflitos no Selecionar tudo
+- endpoint de autenticacao configurado para:
+  https://roletasapi.duckdns.org/regoptimizer/auth.php
+
+NUNCA envie AuthServer/secret.php para o GitHub.
+
+Para aplicar: extraia este ZIP na raiz do repositorio local, substituindo arquivos.
+Depois rode:
+  dotnet clean
+  dotnet build
+  git add -A
+  git commit -m "v3.7 refinamentos de deteccao, conflitos e autenticacao EC2"
+  git push origin main

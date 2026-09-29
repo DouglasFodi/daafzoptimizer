@@ -1,0 +1,32 @@
+RegOptimizer v3.8 FINAL GITHUB — validação estrutural
+
+Endpoint de autenticação:
+https://regoptimizer.duckdns.org/auth.php
+
+Catálogo:
+- 516 tweaks
+- 69 opções inteligentes
+- 4 perfis
+- 3 operações estruturais
+
+Verificações realizadas:
+- todos os JSONs carregam sem erro
+- XAML e csproj são XML válidos
+- todos os TweakIds das opções existem
+- todos os OperationIds existem
+- todos os OptionIds dos perfis existem
+- handlers declarados em MainWindow.xaml e LoginWindow.xaml existem no code-behind
+- RegistryDetectionService presente
+- RegistryOperationService presente
+- gravação reforçada do valor padrão @="" presente, incluindo fallback reg.exe /ve
+- Selecionar tudo inteligente presente
+- Selecionar tudo individual presente
+- proteção de conflitos Path + Name presente
+- nenhum secret.php incluído
+- endpoint antigo roletasapi/regoptimizer removido
+- .gitignore protege **/secret.php
+- GitHub Actions compila Release e publica win-x64
+
+Observação:
+A compilação WPF real deve ser confirmada no Windows com TESTE_FINAL.ps1 ou pelo GitHub Actions,
+pois o ambiente usado para empacotar este ZIP não possui o SDK .NET/Windows WPF instalado.

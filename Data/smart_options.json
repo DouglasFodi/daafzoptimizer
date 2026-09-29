@@ -10,7 +10,8 @@
     "TweakIds": [
       "REG0441"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "UPDATE_SERVICES",
@@ -25,7 +26,8 @@
       "REG0332",
       "REG0338"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "WINDOWS_UPDATE_POLICY",
@@ -44,7 +46,8 @@
       "REG0356",
       "REG0404"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "KERNEL_MITIGATIONS_REVIEW",
@@ -62,7 +65,8 @@
       "REG0439",
       "REG0440"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "POWER_THROTTLING",
@@ -76,7 +80,8 @@
       "REG0139",
       "REG0447"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "POWER_SETTINGS_VISIBILITY",
@@ -91,7 +96,8 @@
       "REG0346",
       "REG0347"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SLEEP_HIBERNATION",
@@ -109,7 +115,8 @@
       "REG0410",
       "REG0411"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "POWER_LATENCY_ADV",
@@ -133,7 +140,8 @@
       "REG0253",
       "REG0254"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "DWM_GRAPHICS",
@@ -152,7 +160,8 @@
       "REG0315",
       "REG0348"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "DIRECTX_GPU_PREFERENCES",
@@ -167,7 +176,8 @@
       "REG0007",
       "REG0008"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GPU_POWER_LATENCY_REVIEW",
@@ -205,7 +215,8 @@
       "REG0286",
       "REG0287"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GPU_PREEMPTION_REVIEW",
@@ -232,7 +243,8 @@
       "REG0216",
       "REG0320"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "HAGS",
@@ -245,7 +257,8 @@
     "TweakIds": [
       "REG0134"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "NVIDIA_DPC_PRIORITY",
@@ -263,7 +276,8 @@
       "REG0261",
       "REG0351"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GPU_DRIVER_MISC_REVIEW",
@@ -278,7 +292,8 @@
       "REG0515",
       "REG0516"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GAMEBAR_CAPTURE",
@@ -308,7 +323,8 @@
       "REG0087",
       "REG0088"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MMCSS_GAMES",
@@ -324,7 +340,8 @@
       "REG0124",
       "REG0125"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MMCSS_LOW_LATENCY",
@@ -345,7 +362,8 @@
       "REG0490",
       "REG0491"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MMCSS_SYSTEM",
@@ -363,7 +381,8 @@
       "REG0130",
       "REG0131"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GAME_MODE_REVIEW",
@@ -378,7 +397,8 @@
       "REG0074",
       "REG0075"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "GAME_PROCESS_PRIORITY",
@@ -393,7 +413,8 @@
       "REG0010",
       "REG0011"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "XBOX_SERVICES",
@@ -412,7 +433,8 @@
       "REG0464",
       "REG0466"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "STARTUP_BEHAVIOR",
@@ -427,7 +449,8 @@
       "REG0444",
       "REG0450"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MEMORY_MANAGEMENT_ADV",
@@ -457,7 +480,8 @@
       "REG0433",
       "REG0434"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "CPU_SCHEDULER_PRIORITY",
@@ -481,7 +505,8 @@
       "REG0151",
       "REG0152"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "TIMER_TUNING",
@@ -501,7 +526,8 @@
       "REG0260",
       "REG0310"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "INPUT_DRIVER_LATENCY",
@@ -516,7 +542,8 @@
       "REG0350",
       "REG0416"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MOUSE_RESPONSE",
@@ -548,7 +575,8 @@
       "REG0381",
       "REG0415"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "KEYBOARD_ACCESSIBILITY_RESPONSE",
@@ -569,7 +597,8 @@
       "REG0183",
       "REG0185"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "APPEARANCE_MEDIA",
@@ -586,7 +615,8 @@
       "REG0300",
       "REG0316"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "TASKBAR_START_EXPERIENCE",
@@ -607,7 +637,8 @@
       "REG0062",
       "REG0064"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "EXPLORER_VISUAL_BEHAVIOR",
@@ -649,7 +680,8 @@
       "REG0063",
       "REG0493"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "UI_RESPONSIVENESS",
@@ -666,20 +698,24 @@
       "REG0033",
       "REG0058"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "CLASSIC_CONTEXT_MENU",
     "Name": "Menu de contexto clássico",
     "Category": "Interface",
-    "Description": "Restaura o menu de contexto clássico definido no seu arquivo.",
+    "Description": "Cria a chave CLSID, cria InprocServer32 e grava explicitamente o valor padrão @=\"\" (REG_SZ vazio), como no .reg original.",
     "Risk": "Baixo",
     "Profile": "Trabalho",
     "ReviewRequired": false,
     "TweakIds": [
       "REG0452"
     ],
-    "Notes": ""
+    "Notes": "Após aplicar, o motor relê o Registro e valida a existência do valor (Padrão) REG_SZ vazio.",
+    "OperationIds": [
+      "OP0001"
+    ]
   },
   {
     "Id": "SHELL_BEHAVIOR",
@@ -701,7 +737,8 @@
       "REG0443",
       "REG0494"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "WEB_LANGUAGE_PRIVACY",
@@ -715,7 +752,8 @@
       "REG0362",
       "REG0363"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "BROWSER_PRIVACY",
@@ -748,7 +786,8 @@
       "REG0513",
       "REG0514"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "ONEDRIVE_POLICY",
@@ -761,7 +800,8 @@
     "TweakIds": [
       "REG0495"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "APP_PERMISSIONS_PRIVACY",
@@ -782,7 +822,8 @@
       "REG0481",
       "REG0482"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SEARCH_WEB_PRIVACY",
@@ -803,7 +844,8 @@
       "REG0308",
       "REG0309"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "TELEMETRY_SERVICES",
@@ -819,7 +861,8 @@
       "REG0456",
       "REG0468"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SYNC_PRIVACY",
@@ -837,7 +880,8 @@
       "REG0298",
       "REG0299"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "CONTENT_SUGGESTIONS",
@@ -873,7 +917,8 @@
       "REG0442",
       "REG0451"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "WINDOWS_TELEMETRY_PRIVACY",
@@ -915,7 +960,8 @@
       "REG0408",
       "REG0449"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "ERROR_REPORTING_POLICY",
@@ -931,7 +977,8 @@
       "REG0230",
       "REG0231"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "NETWORK_DRIVER_STACK",
@@ -948,7 +995,8 @@
       "REG0293",
       "REG0352"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "NETWORK_CONNECTIVITY",
@@ -961,7 +1009,8 @@
     "TweakIds": [
       "REG0492"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "MSMQ_TCP",
@@ -975,7 +1024,8 @@
       "REG0117",
       "REG0119"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "NETWORK_PROVIDER_PRIORITY",
@@ -992,7 +1042,8 @@
       "REG0103",
       "REG0104"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SMB_TUNING_REVIEW",
@@ -1011,7 +1062,8 @@
       "REG0094",
       "REG0095"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "TCP_LOW_LATENCY",
@@ -1029,7 +1081,8 @@
       "REG0115",
       "REG0116"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "TCP_STACK_ADVANCED",
@@ -1048,7 +1101,8 @@
       "REG0113",
       "REG0121"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "STORAGE_SECURITY_REVIEW",
@@ -1061,7 +1115,8 @@
     "TweakIds": [
       "REG0496"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SECURITY_MITIGATIONS_REVIEW",
@@ -1075,7 +1130,8 @@
       "REG0227",
       "REG0317"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SMARTSCREEN_POLICY",
@@ -1088,7 +1144,8 @@
     "TweakIds": [
       "REG0406"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "UAC_REVIEW",
@@ -1102,7 +1159,8 @@
       "REG0322",
       "REG0323"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "DEFENDER_REVIEW",
@@ -1126,7 +1184,8 @@
       "REG0202",
       "REG0203"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SERVICE_STARTUP_MISC",
@@ -1156,7 +1215,8 @@
       "REG0458",
       "REG0470"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "BROWSER_UPDATE_SERVICES",
@@ -1175,7 +1235,23 @@
       "REG0325",
       "REG0331"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
+  },
+  {
+    "Id": "EDGE_UPDATE_TASKCACHE_REMOVE",
+    "Name": "Remover TaskCache do Microsoft Edge Update",
+    "Category": "Serviços",
+    "Description": "Replica as duas instruções [-HKEY...] do .reg original que removem MicrosoftEdgeUpdateTaskMachineCore e MicrosoftEdgeUpdateTaskMachineUA do TaskCache.",
+    "Risk": "Alto",
+    "Profile": "Experimental",
+    "ReviewRequired": false,
+    "TweakIds": [],
+    "OperationIds": [
+      "OP0002",
+      "OP0003"
+    ],
+    "Notes": "Operação destrutiva no TaskCache. Não entra em nenhum perfil automático; use somente quando quiser reproduzir exatamente essas duas linhas do .reg."
   },
   {
     "Id": "OPTIONAL_SERVICES_REVIEW",
@@ -1198,7 +1274,8 @@
       "REG0472",
       "REG0473"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SEARCH_INDEXING",
@@ -1214,7 +1291,8 @@
       "REG0053",
       "REG0337"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "PREFETCH_SYSMMAIN",
@@ -1234,7 +1312,8 @@
       "REG0099",
       "REG0448"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SVCHOST_SPLIT",
@@ -1248,7 +1327,8 @@
       "REG0001",
       "REG0002"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SYSTEM_MAINTENANCE",
@@ -1264,7 +1344,8 @@
       "REG0355",
       "REG0414"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "STORAGE_SENSE",
@@ -1277,7 +1358,8 @@
     "TweakIds": [
       "REG0324"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "PROCESS_TIMEOUTS",
@@ -1294,7 +1376,8 @@
       "REG0026",
       "REG0027"
     ],
-    "Notes": ""
+    "Notes": "",
+    "OperationIds": []
   },
   {
     "Id": "SOURCE_CONFLICTS",
@@ -1312,7 +1395,8 @@
       "REG0217",
       "REG0218"
     ],
-    "Notes": "Corrija a origem antes de transformar estes registros em opção aplicável."
+    "Notes": "Corrija a origem antes de transformar estes registros em opção aplicável.",
+    "OperationIds": []
   },
   {
     "Id": "SOURCE_DUPLICATES",
@@ -1329,6 +1413,7 @@
       "REG0507",
       "REG0512"
     ],
-    "Notes": "Não é erro funcional, mas deve ser limpo no .reg original."
+    "Notes": "Não é erro funcional, mas deve ser limpo no .reg original.",
+    "OperationIds": []
   }
 ]

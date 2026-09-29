@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.Win32;
 using RegOptimizer.Models;
 
@@ -17,9 +18,21 @@ public static class RegistryService
 
     public static void Apply(IEnumerable<Tweak> tweaks)
     {
-        ValidateNoConflicts(tweaks);
-        foreach (var t in Deduplicate(tweaks))
+        var list = Deduplicate(tweaks).ToList();
+        ValidateNoConflicts(list);
+
+        foreach (var t in list)
+        {
             ApplyOne(t);
+
+            // @="" é o valor padrão/sem nome. Em alguns cenários queremos
+            // garantir a mesma semântica do reg.exe /ve, então fazemos fallback
+            // explícito caso a primeira gravação não seja observada na validação.
+            if (!TryVerifyOne(t, out _) && t.Name == "@" && t.RegistryType == "String")
+                ApplyDefaultStringWithRegExe(t);
+
+            VerifyOne(t);
+        }
     }
 
     public static void Restore(IEnumerable<Tweak> tweaks, RegistrySnapshot snapshot)
@@ -50,10 +63,10 @@ public static class RegistryService
         using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
         using var key = baseKey.OpenSubKey(subKey, writable: false);
 
-        var item = new RegistrySnapshotItem { TweakId=t.Id, Path=t.Path, Name=t.Name };
+        var item = new RegistrySnapshotItem { TweakId = t.Id, Path = t.Path, Name = t.Name };
         if (key is null) return item;
 
-        string valueName = t.Name == "@" ? "" : t.Name;
+        string valueName = ValueName(t);
         var names = key.GetValueNames();
         if (!names.Contains(valueName, StringComparer.OrdinalIgnoreCase)) return item;
 
@@ -83,42 +96,107 @@ public static class RegistryService
         using var key = baseKey.CreateSubKey(subKey, writable: true)
             ?? throw new InvalidOperationException($"Não foi possível abrir/criar {t.Path}");
 
-        string name = t.Name == "@" ? "" : t.Name;
-        object value;
-        RegistryValueKind kind;
+        var (kind, value) = ExpectedValue(t);
 
-        switch (t.RegistryType)
-        {
-            case "DWord":
-                kind = RegistryValueKind.DWord;
-                value = unchecked((int)Convert.ToUInt32(t.ApplyRaw["dword:".Length..], 16));
-                break;
-            case "String":
-                kind = RegistryValueKind.String;
-                value = Unquote(t.ApplyRaw);
-                break;
-            case "Binary":
-                kind = RegistryValueKind.Binary;
-                value = ParseBinary(t.ApplyRaw);
-                break;
-            default:
-                throw new NotSupportedException($"Tipo não suportado automaticamente: {t.RegistryType} ({t.Id})");
-        }
-
+        // Em .reg, @ representa o valor padrão/sem nome. A API aceita null ou string vazia.
         if (t.Name == "@")
-        {
-            // @="" em arquivos .reg significa:
-            // valor padrão/sem nome, REG_SZ, string vazia.
-            key.SetValue("", value, kind);
-            key.Flush();
-        }
+            key.SetValue(null!, value, kind);
         else
-        {
             key.SetValue(t.Name, value, kind);
-            key.Flush();
+
+        key.Flush();
+    }
+
+    private static void ApplyDefaultStringWithRegExe(Tweak t)
+    {
+        var expected = Unquote(t.ApplyRaw);
+        var psi = new ProcessStartInfo
+        {
+            FileName = Path.Combine(Environment.SystemDirectory, "reg.exe"),
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true
+        };
+
+        psi.ArgumentList.Add("add");
+        psi.ArgumentList.Add(t.Path);
+        psi.ArgumentList.Add("/ve");
+        psi.ArgumentList.Add("/t");
+        psi.ArgumentList.Add("REG_SZ");
+        psi.ArgumentList.Add("/d");
+        psi.ArgumentList.Add(expected);
+        psi.ArgumentList.Add("/f");
+
+        using var process = Process.Start(psi)
+            ?? throw new InvalidOperationException("Não foi possível iniciar reg.exe para criar o valor padrão.");
+
+        var stdout = process.StandardOutput.ReadToEnd();
+        var stderr = process.StandardError.ReadToEnd();
+        process.WaitForExit();
+
+        if (process.ExitCode != 0)
+        {
+            var detail = string.IsNullOrWhiteSpace(stderr) ? stdout : stderr;
+            throw new InvalidOperationException(
+                $"Falha ao criar @=\"\" em {t.Path} via reg.exe. Código {process.ExitCode}. {detail.Trim()}");
         }
-        
-        key.SetValue(name, value, kind);
+    }
+
+    private static void VerifyOne(Tweak t)
+    {
+        if (!TryVerifyOne(t, out var error))
+            throw new InvalidOperationException(error);
+    }
+
+    private static bool TryVerifyOne(Tweak t, out string error)
+    {
+        error = "";
+        var (hive, subKey) = SplitPath(t.Path);
+        using var baseKey = RegistryKey.OpenBaseKey(hive, RegistryView.Default);
+        using var key = baseKey.OpenSubKey(subKey, writable: false);
+        if (key is null)
+        {
+            error = $"Validação falhou: a chave não existe após aplicação: {t.Path}";
+            return false;
+        }
+
+        var valueName = ValueName(t);
+        var names = key.GetValueNames();
+        if (!names.Contains(valueName, StringComparer.OrdinalIgnoreCase))
+        {
+            var shown = t.Name == "@" ? "(Padrão) / @" : t.Name;
+            error = $"Validação falhou: o valor {shown} não foi criado em {t.Path}.";
+            return false;
+        }
+
+        var (expectedKind, expectedValue) = ExpectedValue(t);
+        var actualKind = key.GetValueKind(valueName);
+        if (actualKind != expectedKind)
+        {
+            error = $"Validação falhou em {t.Id}: tipo esperado {expectedKind}, encontrado {actualKind}.\n{t.Path}";
+            return false;
+        }
+
+        var actualValue = key.GetValue(valueName, null, RegistryValueOptions.DoNotExpandEnvironmentNames);
+        bool equal = expectedKind switch
+        {
+            RegistryValueKind.DWord => actualValue is int ai && expectedValue is int ei && ai == ei,
+            RegistryValueKind.String => actualValue is string astr && expectedValue is string estr && astr == estr,
+            RegistryValueKind.Binary => actualValue is byte[] ab && expectedValue is byte[] eb && ab.SequenceEqual(eb),
+            _ => Equals(actualValue, expectedValue)
+        };
+
+        if (!equal)
+        {
+            var shown = t.Name == "@" ? "(Padrão) / @" : t.Name;
+            error =
+                $"Validação falhou em {t.Id}: {shown} foi gravado com conteúdo diferente do .reg original.\n" +
+                $"Caminho: {t.Path}\nEsperado: {t.RegistryAssignmentDisplay}";
+            return false;
+        }
+
+        return true;
     }
 
     private static void RestoreOne(RegistrySnapshotItem item)
@@ -131,6 +209,7 @@ public static class RegistryService
         {
             using var existing = baseKey.OpenSubKey(subKey, writable: true);
             existing?.DeleteValue(name, throwOnMissingValue: false);
+            existing?.Flush();
             return;
         }
 
@@ -146,6 +225,21 @@ public static class RegistryService
             _ => item.StringValue ?? ""
         };
         key.SetValue(name, value, item.Kind);
+        key.Flush();
+    }
+
+    private static string ValueName(Tweak t) => t.Name == "@" ? "" : t.Name;
+
+    private static (RegistryValueKind kind, object value) ExpectedValue(Tweak t)
+    {
+        return t.RegistryType switch
+        {
+            "DWord" => (RegistryValueKind.DWord,
+                unchecked((int)Convert.ToUInt32(t.ApplyRaw["dword:".Length..], 16))),
+            "String" => (RegistryValueKind.String, Unquote(t.ApplyRaw)),
+            "Binary" => (RegistryValueKind.Binary, ParseBinary(t.ApplyRaw)),
+            _ => throw new NotSupportedException($"Tipo não suportado automaticamente: {t.RegistryType} ({t.Id})")
+        };
     }
 
     private static (RegistryHive hive, string subKey) SplitPath(string path)
@@ -155,11 +249,11 @@ public static class RegistryService
         var sub = idx < 0 ? "" : path[(idx + 1)..];
         var hive = root.ToUpperInvariant() switch
         {
-            "HKEY_LOCAL_MACHINE" => RegistryHive.LocalMachine,
-            "HKEY_CURRENT_USER" => RegistryHive.CurrentUser,
-            "HKEY_CLASSES_ROOT" => RegistryHive.ClassesRoot,
-            "HKEY_USERS" => RegistryHive.Users,
-            "HKEY_CURRENT_CONFIG" => RegistryHive.CurrentConfig,
+            "HKEY_LOCAL_MACHINE" or "HKLM" => RegistryHive.LocalMachine,
+            "HKEY_CURRENT_USER" or "HKCU" => RegistryHive.CurrentUser,
+            "HKEY_CLASSES_ROOT" or "HKCR" => RegistryHive.ClassesRoot,
+            "HKEY_USERS" or "HKU" => RegistryHive.Users,
+            "HKEY_CURRENT_CONFIG" or "HKCC" => RegistryHive.CurrentConfig,
             _ => throw new NotSupportedException($"Hive não suportada: {root}")
         };
         return (hive, sub);

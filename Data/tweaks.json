@@ -8120,7 +8120,7 @@
   {
     "Id": "REG0452",
     "SourceLine": 812,
-    "DisplayName": "InprocServer32 (valor padrão)",
+    "DisplayName": "Valor padrão do InprocServer32 — @=\"\"",
     "Tab": "Windows 11",
     "Section": "Menu de contexto clássico",
     "Path": "HKEY_CURRENT_USER\\Software\\Classes\\CLSID\\{86CA1AA0-34AA-4E8B-A509-50C905BAE2A2}\\InprocServer32",
@@ -8128,11 +8128,11 @@
     "RegistryType": "String",
     "ApplyRaw": "\"\"",
     "ApplyValue": "",
-    "Description": "ativa o menu antigo do windows 10 no windows 11",
+    "Description": "Cria a chave InprocServer32 e define o valor padrão/sem nome como REG_SZ vazio (@=\"\"), ativando o menu de contexto clássico do Windows 10 no Windows 11.",
     "Risk": "Baixo",
     "OptimizerReference": "",
     "OptimizerReferenceNote": "",
-    "Warning": "",
+    "Warning": "Este registro exige o valor padrão (Padrão) REG_SZ vazio; criar apenas a pasta InprocServer32 não é suficiente.",
     "RestoreStrategy": "SnapshotBeforeApply"
   },
   {

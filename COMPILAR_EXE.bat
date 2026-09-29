@@ -5,6 +5,14 @@ cd /d "%~dp0"
 echo ========================================
 echo RegOptimizer - Compilacao Windows x64
 echo ========================================
+tasklist /FI "IMAGENAME eq RegOptimizer.exe" 2>nul | find /I "RegOptimizer.exe" >nul
+if not errorlevel 1 (
+  echo.
+  echo Fechando instancia anterior do RegOptimizer para evitar bloqueio do build...
+  taskkill /F /IM RegOptimizer.exe >nul 2>nul
+  timeout /t 1 /nobreak >nul
+)
+
 where dotnet >nul 2>nul
 if errorlevel 1 (
   echo.

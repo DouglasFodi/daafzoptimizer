@@ -1,10 +1,19 @@
-﻿AuthServer/secret.php
+# Segredos de autenticação — nunca versionar
+AuthServer/secret.php
 **/secret.php
 
+# Build .NET / Visual Studio
 bin/
 obj/
 .vs/
-
+publish/
 *.user
 *.suo
 *.pdb
+
+# Snapshots gerados localmente pelo aplicativo
+Snapshots/
+
+# Temporários
+*.tmp
+*.bak

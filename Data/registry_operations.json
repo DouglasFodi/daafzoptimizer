@@ -1,0 +1,29 @@
+[
+  {
+    "Id": "OP0001",
+    "SourceLine": 810,
+    "DisplayName": "Criar chave CLSID do menu de contexto clássico",
+    "OperationType": "CreateKey",
+    "Path": "HKEY_CURRENT_USER\\Software\\Classes\\CLSID\\{86CA1AA0-34AA-4E8B-A509-50C905BAE2A2}",
+    "Description": "Cria explicitamente a chave pai presente no .reg original antes de InprocServer32.",
+    "Risk": "Baixo"
+  },
+  {
+    "Id": "OP0002",
+    "SourceLine": 605,
+    "DisplayName": "Remover TaskCache MicrosoftEdgeUpdateTaskMachineCore",
+    "OperationType": "DeleteKey",
+    "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\MicrosoftEdgeUpdateTaskMachineCore",
+    "Description": "Replica a instrução [-HKEY...] da linha 605 do .reg original.",
+    "Risk": "Alto"
+  },
+  {
+    "Id": "OP0003",
+    "SourceLine": 606,
+    "DisplayName": "Remover TaskCache MicrosoftEdgeUpdateTaskMachineUA",
+    "OperationType": "DeleteKey",
+    "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\MicrosoftEdgeUpdateTaskMachineUA",
+    "Description": "Replica a instrução [-HKEY...] da linha 606 do .reg original.",
+    "Risk": "Alto"
+  }
+]

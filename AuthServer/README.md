@@ -1,47 +1,51 @@
 # Servidor de autenticação
 
-A senha **não** deve ficar no repositório público.
+O código público contém apenas `auth.php`, `create_hash.php` e `secret.example.php`.
+O arquivo real `secret.php` **não deve ser versionado**.
 
-## 1. Gere o hash no VPS
+## Produção atual
+
+Endpoint:
+
+```text
+https://regoptimizer.duckdns.org/auth.php
+```
+
+Arquivos na EC2:
+
+```text
+/var/www/html/regoptimizer/auth.php
+/var/www/html/regoptimizer/secret.php
+```
+
+O Nginx encaminha somente `/auth.php` para o PHP-FPM. O segredo não deve ser exposto pela web.
+
+## Atualizar `auth.php` a partir do GitHub
+
+Depois de um `git pull` na EC2:
+
+```bash
+sudo cp AuthServer/auth.php /var/www/html/regoptimizer/auth.php
+sudo chown root:www-data /var/www/html/regoptimizer/auth.php
+sudo chmod 644 /var/www/html/regoptimizer/auth.php
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+Não copie `secret.example.php` sobre o `secret.php` de produção.
+
+## Gerar novo hash
 
 ```bash
 php create_hash.php "SUA-SENHA-FORTE"
 ```
 
-Copie o resultado.
-
-## 2. Configure o segredo
-
-### Opção A — recomendada: variável de ambiente
-
-Defina no PHP/FPM/Apache/Nginx/Painel:
-
-```text
-REGOPTIMIZER_PASSWORD_HASH=$2y$...
-```
-
-### Opção B — simples
-
-No servidor:
+ou diretamente:
 
 ```bash
-cp secret.example.php secret.php
-nano secret.php
+php -r 'echo password_hash("SUA-SENHA-FORTE", PASSWORD_DEFAULT), PHP_EOL;'
 ```
 
-Cole o hash em `password_hash`. **Não envie `secret.php` para o GitHub.**
-
-## 3. Publique
-
-Coloque `auth.php` e, se usar a opção B, `secret.php` em uma pasta HTTPS, por exemplo:
-
-```text
-https://seusite.com/regoptimizer/auth.php
-```
-
-No aplicativo, edite `Data/auth.json` e coloque essa URL em `Endpoint`.
-
-## Resposta da API
+## Respostas
 
 Sucesso:
 
@@ -54,5 +58,3 @@ Falha:
 ```json
 {"ok":false,"message":"Senha inválida."}
 ```
-
-O endpoint inclui um limitador simples de tentativas por IP. Para uso com muitos usuários ou alta exposição pública, substitua por Redis/banco/WAF.

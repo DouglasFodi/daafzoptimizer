@@ -24,11 +24,16 @@ public static class SnapshotService
         return file;
     }
 
-    public static RegistrySnapshot? FindLatestContaining(IEnumerable<string> tweakIds)
+    public static RegistrySnapshot? FindLatestContaining(
+        IEnumerable<string> tweakIds,
+        IEnumerable<string>? operationIds = null)
     {
         Directory.CreateDirectory(DirectoryPath);
-        var needed = tweakIds.ToHashSet(StringComparer.OrdinalIgnoreCase);
-        if (needed.Count == 0) return null;
+        var neededTweaks = tweakIds.ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var neededOperations = (operationIds ?? Array.Empty<string>())
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        if (neededTweaks.Count == 0 && neededOperations.Count == 0) return null;
 
         foreach (var file in Directory.EnumerateFiles(DirectoryPath, "snapshot-*.json")
                                       .OrderByDescending(File.GetLastWriteTimeUtc))
@@ -37,9 +42,14 @@ public static class SnapshotService
             {
                 var snap = JsonSerializer.Deserialize<RegistrySnapshot>(File.ReadAllText(file), Options);
                 if (snap is null) continue;
-                var present = snap.Items.Select(x => x.TweakId)
-                                        .ToHashSet(StringComparer.OrdinalIgnoreCase);
-                if (needed.All(present.Contains))
+
+                var presentTweaks = snap.Items.Select(x => x.TweakId)
+                                              .ToHashSet(StringComparer.OrdinalIgnoreCase);
+                var presentOperations = snap.Operations.Select(x => x.OperationId)
+                                                       .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+                if (neededTweaks.All(presentTweaks.Contains) &&
+                    neededOperations.All(presentOperations.Contains))
                     return snap;
             }
             catch

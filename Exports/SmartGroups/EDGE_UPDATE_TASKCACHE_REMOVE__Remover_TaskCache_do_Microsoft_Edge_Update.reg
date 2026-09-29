@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; RegOptimizer Smart Option: Remover TaskCache do Microsoft Edge Update
+; Replica exatamente as linhas estruturais 605-606 do .reg original.
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\MicrosoftEdgeUpdateTaskMachineCore]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\MicrosoftEdgeUpdateTaskMachineUA]
